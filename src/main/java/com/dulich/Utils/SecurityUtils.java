@@ -13,6 +13,7 @@ public class SecurityUtils
     {
         return (UserDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
+    @SuppressWarnings("unchecked")
     public static List<String> getRoles()
     {
         List<String> roles = new ArrayList<>();

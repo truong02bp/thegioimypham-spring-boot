@@ -36,13 +36,13 @@
                 <img src="<c:url value="/template/login/images/img-01.png"/>" alt="IMG">
             </div>
 
-            <form action="/" class="login100-form validate-form" method="post">
+            <form action="/login" class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
 						Member Login
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="username" placeholder="username">
+                    <input class="input100" type="text" name="j_username" placeholder="username">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="password" placeholder="password">
+                    <input class="input100" type="password" name="j_password" placeholder="password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
