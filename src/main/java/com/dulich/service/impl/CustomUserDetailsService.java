@@ -7,7 +7,6 @@ import com.dulich.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,15 +21,17 @@ public class CustomUserDetailsService implements UserDetailsService
     @Autowired
     private UserRepository userRepository;
     @Override
-    public UserDto loadUserByUsername(String s) throws UsernameNotFoundException
+    public UserDto loadUserByUsername(String username) throws UsernameNotFoundException
     {
-        UserEntity userEntity = userRepository.findByUsername(s);
-        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        UserEntity userEntity = userRepository.findByUsername(username);
+        if (userEntity == null)
+            throw new UsernameNotFoundException("User not found");
+        List<GrantedAuthority> authorities = new ArrayList<>();
         for (RoleEntity role : userEntity.getRoles())
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getCode()));
-        UserDto userDto = new UserDto(userEntity.getUsername() , userEntity.getPassword() , true
-        ,true , true , true , grantedAuthorities);
-        userDto.setFullName(userEntity.getFullname());
-        return userDto;
+            authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getCode()));
+        UserDto user = new UserDto(userEntity.getUsername() , userEntity.getPassword() ,
+                true , true , true , true , authorities);
+        user.setFullName(userEntity.getFullname());
+        return user;
     }
 }

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.dulich.ultils.SecurityUtils" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 16/5/2020
@@ -190,6 +190,16 @@
                                     </li>
                                 </ul>
                             </div>
+                            <security:authorize access="isAnonymous()">
+                                <li class="dropdown">
+                                    <a href="/trang-chu">Hello</a>
+                                </li>
+                            </security:authorize>
+                            <security:authorize access="isAuthenticated()">
+                                <li class="dropdown">
+                                    <a href="/trang-chu">nai sư</a>
+                                </li>
+                            </security:authorize>
                             <button type="button" class="btn btn-warning">ĐẶT NGAY</button>
                         </div>
 
