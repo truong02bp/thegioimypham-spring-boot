@@ -1,11 +1,10 @@
 package com.dulich.dto;
 
 
-public class RoleDto
+public class RoleDto extends AbstractDto
 {
     private String code;
     private String name;
-
     public String getCode() {
         return code;
     }

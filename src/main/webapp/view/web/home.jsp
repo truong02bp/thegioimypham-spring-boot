@@ -303,7 +303,7 @@
                                             <a href="Contact.html">CONTACT</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="MyAccount.html">ACCOUNT</a>
+                                            <a href="/dang-ky">Đăng ký</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -1,7 +1,7 @@
 package com.dulich.ultils;
 
 
-import com.dulich.dto.UserDto;
+import com.dulich.dto.MyUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -10,9 +10,9 @@ import java.util.List;
 
 public class SecurityUtils
 {
-    public static UserDto getPrincipal()
+    public static MyUserDetails getPrincipal()
     {
-        return (UserDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
     public static List<String> getRoles()
     {

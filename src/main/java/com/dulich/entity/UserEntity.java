@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity extends BaseEntity
 {
     @Column(name = "username")
@@ -14,7 +14,13 @@ public class UserEntity extends BaseEntity
     private String password;
     @Column(name = "fullname")
     private String fullname;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @Column(name = "email")
+    private String email;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "phone")
+    private String phone;
+    @ManyToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinTable(name = "user_role" , joinColumns = @JoinColumn(name = "user_id") ,
             inverseJoinColumns = @JoinColumn(name ="role_id"))
     private List<RoleEntity> roles = new ArrayList<>();
@@ -49,5 +55,29 @@ public class UserEntity extends BaseEntity
 
     public void setRoles(List<RoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

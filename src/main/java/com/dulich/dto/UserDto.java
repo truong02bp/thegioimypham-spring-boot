@@ -1,19 +1,62 @@
 package com.dulich.dto;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class UserDto extends User
+public class UserDto extends AbstractDto
 {
     private String fullName;
-    private List<RoleDto> roles = new ArrayList<>();
+    private String username;
+    private String password;
+    private String address;
+    private String email;
+    private String phone;
+    private List<RoleDto> roles;
+    public String getFullName() {
+        return fullName;
+    }
 
-    public UserDto(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public List<RoleDto> getRoles() {
@@ -22,13 +65,5 @@ public class UserDto extends User
 
     public void setRoles(List<RoleDto> roles) {
         this.roles = roles;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 }

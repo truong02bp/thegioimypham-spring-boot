@@ -190,16 +190,16 @@
                                     </li>
                                 </ul>
                             </div>
-                            <security:authorize access="isAnonymous()">
-                                <li class="dropdown">
-                                    <a href="/trang-chu">Hello</a>
-                                </li>
-                            </security:authorize>
-                            <security:authorize access="isAuthenticated()">
-                                <li class="dropdown">
-                                    <a href="/trang-chu">nai sư</a>
-                                </li>
-                            </security:authorize>
+<%--                            <security:authorize access="isAnonymous()">--%>
+<%--                                <li class="dropdown">--%>
+<%--                                    <a href="/trang-chu">Hello</a>--%>
+<%--                                </li>--%>
+<%--                            </security:authorize>--%>
+<%--                            <security:authorize access="isAuthenticated()">--%>
+<%--                                <li class="dropdown">--%>
+<%--                                    <a href="/trang-chu">nai sư</a>--%>
+<%--                                </li>--%>
+<%--                            </security:authorize>--%>
                             <button type="button" class="btn btn-warning">ĐẶT NGAY</button>
                         </div>
 
