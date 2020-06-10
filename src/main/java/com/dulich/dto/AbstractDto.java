@@ -1,14 +1,52 @@
 package com.dulich.dto;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
-public class AbstractDto
+public class AbstractDto<T>
 {
-    private Long id;
-    private String createdBy;
-    private String modifiedBy;
-    private Timestamp createdDate;
-    private Timestamp modifiedDate;
+    protected Long id;
+    protected List<T> list;
+    protected int page;
+    protected int limit;
+    protected int totalPage;
+    protected String createdBy;
+    protected String modifiedBy;
+    protected Date createdDate;
+    protected Date modifiedDate;
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public List<T> getList() {
+        return list;
+    }
+
+    public void setList(List<T> list) {
+        this.list = list;
+    }
 
     public Long getId() {
         return id;
@@ -34,19 +72,19 @@ public class AbstractDto
         this.modifiedBy = modifiedBy;
     }
 
-    public Timestamp getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Timestamp createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Timestamp getModifiedDate() {
+    public Date getModifiedDate() {
         return modifiedDate;
     }
 
-    public void setModifiedDate(Timestamp modifiedDate) {
+    public void setModifiedDate(Date modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 }

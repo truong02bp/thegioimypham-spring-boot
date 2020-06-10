@@ -1,6 +1,6 @@
 package com.dulich.config;
 
-import com.dulich.security.CustomSuccescHandler;
+import com.dulich.security.CustomSuccessHandler;
 import com.dulich.service.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .formLogin()
                 .loginProcessingUrl("/j_spring_security_check")
                 .loginPage("/dang-nhap")
-                .successHandler(new CustomSuccescHandler())
+                .successHandler(new CustomSuccessHandler())
                 .failureUrl("/dang-nhap?error")
                 .usernameParameter("username").passwordParameter("password")
                 .and().exceptionHandling().accessDeniedPage("/dang-nhap")

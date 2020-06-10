@@ -6,7 +6,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 @MappedSuperclass
 public class BaseEntity
@@ -14,18 +14,18 @@ public class BaseEntity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+    @Column(name = "createdby" , columnDefinition = "text")
     @CreatedBy
-    @Column(name = "createdby")
     protected String createdBy;
-    @CreatedDate
     @Column(name = "createddate")
-    protected Timestamp createdDate;
+    @CreatedDate
+    protected Date createdDate;
+    @Column(name = "modifiedby" , columnDefinition = "text")
     @LastModifiedBy
-    @Column(name = "modifiedby")
     protected String modifiedBy;
-    @LastModifiedDate
     @Column(name = "modifieddate")
-    protected Timestamp modifiedDate;
+    @LastModifiedDate
+    protected Date modifiedDate;
 
     public Long getId() {
         return id;
@@ -39,31 +39,15 @@ public class BaseEntity
         return createdBy;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Timestamp getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
-    }
-
-    public void setCreatedDate(Timestamp createdDate) {
-        this.createdDate = createdDate;
     }
 
     public String getModifiedBy() {
         return modifiedBy;
     }
 
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
-
-    public Timestamp getModifiedDate() {
+    public Date getModifiedDate() {
         return modifiedDate;
-    }
-
-    public void setModifiedDate(Timestamp modifiedDate) {
-        this.modifiedDate = modifiedDate;
     }
 }

@@ -17,190 +17,136 @@
                         <div class="pull-left nav-left">
                             <div class="logo">
                                 <a href="/trang-chu">
-                                    <img src="<c:url value="/template/images/logo.png"/>" alt="logo" class=" img-responsive">
+                                    <h1>Beauty Shop</h1>
                                 </a>
                             </div>
                         </div>
                         <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
-                                <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                                </span>
+                                    <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                    </span>
                         </button>
                         <div class="pull-right nav-right">
                             <div class="navbar-main">
                                 <ul class="navbar-menu">
                                     <li class="dropdown">
-                                        <a href="/trang-chu" >Trang chủ</a>
+                                        <a href="/trang-chu" class="active-menu">Trang chủ</a>
                                     </li>
-                                      <li class="dropdown productMN">
-                                                <a href="/" class="active-menu">Khách sạn</a>
-                                                <i class="fa fa-angle-down"></i>
-                                                <div class="box-menu">
-                                                    <div class="row">
+                                    <li class="dropdown productMN">
+                                        <a href="#" class="active-menu">Trang điểm</a>
+                                        <i class="fa fa-angle-down"></i>
+                                        <div class="box-menu">
+                                            <div class="row">
 
-                                                        <div class="col-md-3 ">
-                                                            <div class=" slideSort">
-                                                                <h3 class="slider-left-title">Catalog</h3>
-                                                                <ul class="slide-left-list">
-                                                                    <li><a href="ProductGrid.html">Kitchen</a></li>
-                                                                    <li><a href="ProductGrid.html">Living room</a></li>
-                                                                    <li><a href="ProductGrid.html">Office</a></li>
-                                                                    <li><a href="ProductGrid.html">Gadgets</a></li>
-                                                                    <li><a href="ProductGrid.html">Accessories</a></li>
-                                                                    <li><a href="ProductGrid.html">Tool kits</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 ">
-
-                                                            <div class=" slideSort">
-                                                                <h3 class="slider-left-title">Vui chơi giải trí</h3>
-                                                                <ul class="slide-left-list">
-                                                                    <li><a href="ProductGrid.html">New Product</a></li>
-                                                                    <li><a href="ProductGrid.html">Most Poupular</a></li>
-                                                                    <li><a href="ProductGrid.html">Top Trending</a></li>
-                                                                    <li><a href="ProductGrid.html">On Sale</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 ">
-                                                            <div class="box-slider-left slideNewproduct slideNewproduct2">
-                                                                <h3 class="slider-left-title" style="margin-bottom: 10px">Best sellers</h3>
-                                                                <div class="box-slideNewproduct">
-                                                                    <div class="slideNewproduct-item slideNewproduct-img">
-                                                                        <a href="SingleProduct.html"><img src="<c:url value="/template/images/Product/1P5.jpg"/>" alt="product1" class="img-responsive"></a>
-                                                                    </div>
-                                                                    <div class="slideNewproduct-item slideNewproduct-text">
-                                                                        <h5><a href="SingleProduct.html">Trailer</a></h5>
-                                                                        <p class="slideProduct-price">$32.00</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-slideNewproduct ">
-                                                                    <div class="slideNewproduct-item slideNewproduct-img">
-                                                                        <a href="SingleProduct.html"><img src="<c:url value="/template/images/Product/1P3.jpg"/>" alt="product1" class="img-responsive"></a>
-                                                                    </div>
-                                                                    <div class="slideNewproduct-item slideNewproduct-text">
-                                                                        <h5><a href="SingleProduct.html">Magic Clock</a></h5>
-                                                                        <p class="slideProduct-price">$32.00</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-slideNewproduct">
-                                                                    <div class="slideNewproduct-item slideNewproduct-img">
-                                                                        <a href="SingleProduct.html"><img src="<c:url value="/template/images/Product/1P1.jpg"/>" alt="product1" class="img-responsive"></a>
-                                                                    </div>
-                                                                    <div class="slideNewproduct-item slideNewproduct-text">
-                                                                        <h5><a href="SingleProduct.html">Obraz Mechaniczny</a></h5>
-                                                                        <p class="slideProduct-price">$32.00</p>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 ">
-                                                            <h3 class="slider-left-title">Woody Store</h3>
-                                                            <div  class="box-gallery">
-                                                                <a href="AboutUs.html">
-                                                                    <img src="<c:url value="/template/images/MN2.png"/>" alt="banner slideBar" class="img-responsive" style="width: 100%">
-                                                                    <div class="arrIcon">
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-
-                                                        </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" slideSort">
+                                                        <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;">Các loại sản phẩm</h2>
+                                                        <br>
+                                                        <ul class="slide-left-list">
+                                                            <li><h3><a href="/page-san-pham?name=son-moi&page=1&limit=6">Son môi</a></h3></li>
+                                                            <br>
+                                                            <li><h3><a href="/page-san-pham?name=mascara&page=1&limit=6">Mascara</a></h3></li>
+                                                            <br>
+                                                            <li><h3><a href="/page-san-pham?name=kem-phan&page=1&limit=6">Kem phủ - phấn</a></h3></li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li class="dropdown productMN">
-                                                <a href="Gallery.html">Hội họp & sự kiện</a>
-                                                <i class="fa fa-angle-down"></i>
-                                                <div class="box-menu">
-                                                    <div class="row">
+                                                <div class="col-md-6 ">
+                                                    <div class="box-slider-left slideNewproduct slideNewproduct2">
+                                                        <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
+                                                            Sản phẩm bán chạy nhất</h2>
+                                                        <div class="box-slideNewproduct">
+                                                            <div class="slideNewproduct-item slideNewproduct-img">
+                                                                <a href="/san-pham?id=21&name=gluwhite-vn"><img
+                                                                        src="<c:url value="/template/images/gluwhite-vn.jpg"/> " alt="product1"
+                                                                        class="img-responsive"></a>
+                                                            </div>
+                                                            <div class="slideNewproduct-item slideNewproduct-text">
+                                                                <h4><a href="/san-pham?id=21&name=gluwhite-vn">Viên sủi trắng da Gluwhite</a></h4>
+                                                                <p class="slideProduct-price" style="font-size: 16px;margin-top: 0;">890,000 đ</p>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <%--                                                        <div class="box-slideNewproduct">--%>
+                                                        <%--                                                            <div class="slideNewproduct-item slideNewproduct-img">--%>
+                                                        <%--                                                                <a href="/san-pham?id=20&name=dakami-vn"><img--%>
+                                                        <%--                                                                        src="<c:url value="/template/images/dakami-vn.jpg"/>" alt="product1"--%>
+                                                        <%--                                                                        class="img-responsive"></a>--%>
+                                                        <%--                                                            </div>--%>
+                                                        <%--                                                            <div class="slideNewproduct-item slideNewproduct-text">--%>
+                                                        <%--                                                                <h4><a href="/san-pham?id=20&name=dakami-vn">Kem chống lão hóa Dakami</a></h4>--%>
+                                                        <%--                                                                <p class="slideProduct-price" style="font-size: 16px;margin-top: 0;">790,000 đ</p>--%>
+                                                        <%--                                                            </div>--%>
+                                                        <%--                                                        </div>--%>
 
-                                                        <div class="col-md-3 ">
-                                                            <div class=" slideSort">
-                                                                <h3 class="slider-left-title">About Bussiness</h3>
-                                                                <ul class="slide-left-list">
-                                                                    <li><a href="Policy.html">Policy</a></li>
-                                                                    <li><a href="FAQ.html">FAQ</a></li>
-                                                                    <li><a href="Policy.html">Term & Conditions</a></li>
-                                                                    <li><a href="Policy.html">Private Policy</a></li>
-                                                                    <li><a href="Policy.html">Term of User</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 ">
-
-                                                            <div class=" slideSort">
-                                                                <h3 class="slider-left-title">Other link</h3>
-                                                                <ul class="slide-left-list">
-                                                                    <li><a href="Blogs.html">Blogs</a></li>
-                                                                    <li><a href="Gallery.html">Gallery</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 ">
-                                                            <div class="box-slider-left slideNewproduct slideNewproduct2">
-                                                                <h3 class="slider-left-title" style="margin-bottom: 10px">Recent news</h3>
-                                                                <div class="box-slideNewproduct">
-                                                                    <div class="slideNewproduct-item slideNewproduct-img">
-                                                                        <a href="BlogSingle.html"><img src="<c:url value="/template/images/recen1.png"/>" alt="product1" class="img-responsive"></a>
-                                                                    </div>
-                                                                    <div class="slideNewproduct-item slideNewproduct-text">
-                                                                        <h5><a href="BlogSingle.html" style="font-size: 12px;color: #a8a8a8">Jul 19,2019 / 4 Comments</a></h5>
-                                                                        <p class="slideProduct-price" style="font-size: 16px;margin-top: 0;">Waxy latest also use</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-slideNewproduct ">
-                                                                    <div class="slideNewproduct-item slideNewproduct-img">
-                                                                        <a href="BlogSingle.html"><img src="<c:url value="/template/images/recen2.png"/>" alt="product1" class="img-responsive"></a>
-                                                                    </div>
-                                                                    <div class="slideNewproduct-item slideNewproduct-text">
-                                                                        <h5><a href="BlogSingle.html" style="font-size: 12px;color: #a8a8a8">Jun 26 , 2019 / 15 Comments</a></h5>
-                                                                        <p class="slideProduct-price" style="font-size: 16px;margin-top: 0;">Decorating your home</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-slideNewproduct">
-                                                                    <div class="slideNewproduct-item slideNewproduct-img">
-                                                                        <a href="BlogSingle.html"><img src="<c:url value="/template/images/recen3.png"/>" alt="product1" class="img-responsive"></a>
-                                                                    </div>
-                                                                    <div class="slideNewproduct-item slideNewproduct-text">
-                                                                        <h5><a href="BlogSingle.html" style="font-size: 12px;color: #a8a8a8">Feb 12, 2019 / 8 Comments</a></h5>
-                                                                        <p class="slideProduct-price" style="font-size: 16px;margin-top: 0;">Wood in your house</p>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 ">
-                                                            <h3 class="slider-left-title">Our Gallery</h3>
-                                                            <div style="position: relative">
-                                                                <a href="Gallery.html" class="abbr">
-                                                                    <img style=" width: 100%;" src="<c:url value="/template/images/MN1.png"/>" alt="banner slideBar" class="img-responsive">
-                                                                </a>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                            </li>
-                                    <li class="dropdown">
-                                        <a href="AboutUs.html">Ưu đãi</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown productMN">
+                                        <a href="#" class="active-menu">Chăm sóc da</a>
+                                        <i class="fa fa-angle-down"></i>
+                                        <div class="box-menu">
+                                            <div class="row">
+
+                                                <div class="col-md-6 ">
+                                                    <div class=" slideSort">
+                                                        <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;">Các loại sản phẩm</h2>
+                                                        <br>
+                                                        <ul class="slide-left-list">
+                                                            <li><h3><a href="/page-san-pham?name=kem-duong-da&page=1&limit=6">Kem dưỡng trắng da</a></h3></li>
+                                                            <br>
+                                                            <li><h3><a href="/page-san-pham?name=sua-rua-mat&page=1&limit=6">Sữa rửa mặt</a></h3></li>
+                                                            <br>
+                                                            <li><h3><a href="/page-san-pham?name=mat-na&page=1&limit=6">Mặt nạ dưỡng da</a></h3></li>
+                                                            <br>
+                                                            <li><h3><a href="/page-san-pham?name=tay-trang&page=1&limit=6">Tẩy trang</a></h3></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="box-slider-left slideNewproduct slideNewproduct2">
+                                                        <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
+                                                            Sản phẩm bán chạy nhất</h2>
+                                                        <div class="box-slideNewproduct ">
+                                                            <div class="slideNewproduct-item slideNewproduct-img">
+                                                                <a href="/san-pham?id=18&name=22again-vn"><img
+                                                                        src="<c:url value="/template/images/22again-vn.jpg"/>" alt="product1"
+                                                                        class="img-responsive"></a>
+                                                            </div>
+                                                            <div class="slideNewproduct-item slideNewproduct-text">
+                                                                <h4><a href="/san-pham?id=18&name=22again-vn"
+                                                                >Kem chống lão hóa 22again</a></h4>
+                                                                <p class="slideProduct-price"
+                                                                   style="font-size: 16px;margin-top: 0;">790,000 đ
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <%--                                                        <div class="box-slideNewproduct">--%>
+                                                        <%--                                                            <div class="slideNewproduct-item slideNewproduct-img">--%>
+                                                        <%--                                                                <a href="/san-pham?id=23&name=lefery-vn"><img--%>
+                                                        <%--                                                                        src="<c:url value="/template/images/lefery-vn.jpg"/>" alt="product1"--%>
+                                                        <%--                                                                        class="img-responsive"></a>--%>
+                                                        <%--                                                            </div>--%>
+                                                        <%--                                                            <div class="slideNewproduct-item slideNewproduct-text">--%>
+                                                        <%--                                                                <h4><a href="/san-pham?id=23&name=lefery-vn"--%>
+                                                        <%--                                                                       >Kem dưỡng da Lefery</a></h4>--%>
+                                                        <%--                                                                <p class="slideProduct-price"--%>
+                                                        <%--                                                                   style="font-size: 16px;margin-top: 0;">590,000 đ</p>--%>
+                                                        <%--                                                            </div>--%>
+                                                        <%--                                                        </div>--%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="Contact.html">Tin tức</a>
+                                        <a href="/page-san-pham?name=thuc-pham-chuc-nang&page=1&limit=9" class="active-menu">Thực phẩm chức năng</a>
                                     </li>
                                 </ul>
                             </div>
-<%--                            <security:authorize access="isAnonymous()">--%>
-<%--                                <li class="dropdown">--%>
-<%--                                    <a href="/trang-chu">Hello</a>--%>
-<%--                                </li>--%>
-<%--                            </security:authorize>--%>
-<%--                            <security:authorize access="isAuthenticated()">--%>
-<%--                                <li class="dropdown">--%>
-<%--                                    <a href="/trang-chu">nai sư</a>--%>
-<%--                                </li>--%>
-<%--                            </security:authorize>--%>
-                            <button type="button" class="btn btn-warning">ĐẶT NGAY</button>
                         </div>
 
                     </div>

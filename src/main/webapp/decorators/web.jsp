@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="<c:url value="/template/vendor/slide-zoom/css/fontello.css"/>">
     <script src="<c:url value='/template/assets/js/jquery-2.1.4.min.js'/>"></script>
     <script src="<c:url value='/template/assets/js/bootstrap.min.js'/>"></script>
-<%--    <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>" type="text/javascript"></script>--%>
+    <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>" type="text/javascript"></script>
 </head>
 <body>
 

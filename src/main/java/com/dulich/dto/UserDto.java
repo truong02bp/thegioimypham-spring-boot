@@ -2,7 +2,7 @@ package com.dulich.dto;
 
 import java.util.List;
 
-public class UserDto extends AbstractDto
+public class UserDto extends AbstractDto<UserDto>
 {
     private String fullName;
     private String username;

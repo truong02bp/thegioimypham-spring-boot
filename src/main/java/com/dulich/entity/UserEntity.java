@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class UserEntity extends BaseEntity
 {
     @Column(name = "username")
@@ -21,8 +21,8 @@ public class UserEntity extends BaseEntity
     @Column(name = "phone")
     private String phone;
     @ManyToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role" , joinColumns = @JoinColumn(name = "user_id") ,
-            inverseJoinColumns = @JoinColumn(name ="role_id"))
+    @JoinTable(name = "user_role" , joinColumns = @JoinColumn(name = "userid") ,
+            inverseJoinColumns = @JoinColumn(name ="roleid"))
     private List<RoleEntity> roles = new ArrayList<>();
 
     public String getUsername() {

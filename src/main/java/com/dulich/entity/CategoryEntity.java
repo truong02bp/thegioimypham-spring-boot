@@ -1,17 +1,21 @@
 package com.dulich.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "category")
 public class CategoryEntity extends BaseEntity
 {
-    @Column(name = "code")
-    private String code;
     @Column(name = "name")
     private String name;
+    @Column(name = "code")
+    private String code;
 
     public String getCode() {
         return code;
