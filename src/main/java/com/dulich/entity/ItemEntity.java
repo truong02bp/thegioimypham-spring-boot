@@ -8,7 +8,7 @@ public class ItemEntity extends BaseEntity
 {
     @Column (name = "name" , columnDefinition = "text")
     private String name;
-    @Column (name = "content" , columnDefinition = "text")
+    @Column (name = "content" ,columnDefinition = "text")
     private String content;
     @Column (name = "code")
     private String code;

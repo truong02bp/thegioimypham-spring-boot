@@ -36,7 +36,7 @@
 
     <script src="<c:url value='/template/assets/js/jquery-2.1.4.min.js'/>"></script>
     <script src="<c:url value='/template/assets/js/bootstrap.min.js'/>"></script>
-<%--    <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>" type="text/javascript"></script>--%>
+    <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>" type="text/javascript"></script>
 <%--    <script src="<c:url value='/ckeditor/ckeditor.js'/>"></script>--%>
 
 </head>
@@ -44,7 +44,13 @@
 <div class="no-skin">
     <sitemesh:write property="header"/>
     <%@include file="/common/admin/header.jsp"%>
-    <div class="main-container ace-save-state">
+    <div class="main-container ace-save-state" id="main-container">
+        <script type="text/javascript">
+            try {
+                ace.settings.loadState('main-container')
+            } catch (e) {
+            }
+        </script>
         <sitemesh:write property="menu"/>
         <%@include file="/common/admin/menu.jsp"%>
 

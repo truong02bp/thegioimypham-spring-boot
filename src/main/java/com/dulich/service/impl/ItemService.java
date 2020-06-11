@@ -21,6 +21,16 @@ public class ItemService implements IItemService
     private ItemRepository itemRepository;
     @Autowired
     private ItemConverter itemConverter;
+
+    @Override
+    public List<ItemDto> findAll(Pageable pageable) {
+        List<ItemEntity> items = itemRepository.findAll(pageable).getContent();
+        List<ItemDto> rs = new ArrayList<>();
+        for (ItemEntity itemEntity : items)
+            rs.add(itemConverter.toDto(itemEntity));
+        return rs;
+    }
+
     @Override
     public List<ItemDto> findAllByWeb(String web)
     {
@@ -44,5 +54,10 @@ public class ItemService implements IItemService
     @Override
     public Long getTotalPage(Long id) {
         return itemRepository.countByCategoryId(id);
+    }
+
+    @Override
+    public Long getTotalPage() {
+        return itemRepository.count();
     }
 }

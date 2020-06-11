@@ -11,6 +11,8 @@
     <title>Trang chủ</title>
 </head>
 <body>
-<p>Hello</p>
+<div class="main-content">
+    <p>Hello</p>
+</div>
 </body>
 </html>

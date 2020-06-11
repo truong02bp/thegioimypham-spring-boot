@@ -17,6 +17,8 @@ public class UserConverter
         List<GrantedAuthority> authorities = new ArrayList<>();
         UserDto user = new UserDto();
         user.setId(userEntity.getId());
+        user.setUsername(userEntity.getUsername());
+        user.setPassword(userEntity.getPassword());
         user.setEmail(userEntity.getEmail());
         user.setAddress(userEntity.getAddress());
         user.setFullName(userEntity.getFullname());

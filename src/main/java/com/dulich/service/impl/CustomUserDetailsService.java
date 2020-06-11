@@ -58,4 +58,14 @@ public class CustomUserDetailsService implements UserDetailsService , IUserServi
     {
         userRepository.insert(id);
     }
+
+    @Override
+    public List<UserDto> findAll()
+    {
+        List<UserEntity> users = userRepository.findAll();
+        List<UserDto> rs = new ArrayList<>();
+        for (UserEntity userEntity : users)
+            rs.add(userConverter.toDto(userEntity));
+        return rs;
+    }
 }

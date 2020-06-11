@@ -145,6 +145,19 @@
                                     <li class="dropdown">
                                         <a href="/page-san-pham?name=thuc-pham-chuc-nang&page=1&limit=9" class="active-menu">Thực phẩm chức năng</a>
                                     </li>
+                                    <security:authorize access="isAnonymous()">
+                                        <li class="dropdown">
+                                            <a href="/dang-nhap" class="active-menu">Đăng nhập</a>
+                                        </li>
+                                    </security:authorize>
+                                    <security:authorize access="isAuthenticated()">
+                                        <li class="dropdown">
+                                            <a href="#" class="active-menu">Xin chào <%=SecurityUtils.getPrincipal().getFullName()%></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="/j_spring_security_logout" class="active-menu">Đăng xuất</a>
+                                        </li>
+                                    </security:authorize>
                                 </ul>
                             </div>
                         </div>
