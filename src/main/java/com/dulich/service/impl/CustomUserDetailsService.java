@@ -8,6 +8,7 @@ import com.dulich.entity.UserEntity;
 import com.dulich.repository.UserRepository;
 import com.dulich.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -60,12 +61,17 @@ public class CustomUserDetailsService implements UserDetailsService , IUserServi
     }
 
     @Override
-    public List<UserDto> findAll()
+    public List<UserDto> findAll(Pageable pageable)
     {
-        List<UserEntity> users = userRepository.findAll();
+        List<UserEntity> users = userRepository.findAll(pageable).getContent();
         List<UserDto> rs = new ArrayList<>();
         for (UserEntity userEntity : users)
             rs.add(userConverter.toDto(userEntity));
         return rs;
+    }
+
+    @Override
+    public Long getTotalPage() {
+        return userRepository.count();
     }
 }

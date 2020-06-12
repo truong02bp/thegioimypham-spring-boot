@@ -2,6 +2,8 @@ package com.dulich.controller.admin;
 
 import com.dulich.dto.ItemDto;
 import com.dulich.dto.UserDto;
+import com.dulich.entity.UserEntity;
+import com.dulich.repository.UserRepository;
 import com.dulich.service.IItemService;
 import com.dulich.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,6 @@ public class HomeController
     public ModelAndView homePage()
     {
         ModelAndView mav =  new ModelAndView("admin/home");
-        List<UserDto> list = iUserService.findAll();
-        mav.addObject("list",list);
         return mav;
     }
     @GetMapping("/admin-list/item")
@@ -38,18 +38,25 @@ public class HomeController
         model.setPage(page);
         model.setLimit(limit);
         model.setTotalPage((int) Math.ceil((double)iItemService.getTotalPage()/limit));
-        Pageable pageable = PageRequest.of(page,limit);
+        Pageable pageable = PageRequest.of(page-1,limit);
         List<ItemDto> list = iItemService.findAll(pageable);
         model.setList(list);
         mav.addObject("model",model);
         return mav;
     }
     @GetMapping("/admin-list/user")
-    public ModelAndView listUser()
+    public ModelAndView listUser(@RequestParam("page") int page,
+                                 @RequestParam("limit") int limit)
     {
         ModelAndView mav = new ModelAndView("admin/listUser");
-        List<UserDto> list = iUserService.findAll();
-        mav.addObject("list",list);
+        UserDto model = new UserDto();
+        model.setPage(page);
+        model.setLimit(limit);
+        Pageable pageable = PageRequest.of(page-1,limit);
+        List<UserDto> list = iUserService.findAll(pageable);
+        model.setList(list);
+        model.setTotalPage((int) Math.ceil((double)iUserService.getTotalPage()/limit));
+        mav.addObject("model",model);
         return mav;
     }
 }

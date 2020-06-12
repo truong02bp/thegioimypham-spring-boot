@@ -7,9 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp" %>
-<div id="sidebar" class="sidebar                  responsive                    ace-save-state" data-sidebar="true" data-sidebar-scroll="true" data-sidebar-hover="true">
+<div id="sidebar" class="sidebar                  responsive                    ace-save-state" data-sidebar="true"
+     data-sidebar-scroll="true" data-sidebar-hover="true">
     <script type="text/javascript">
-        try{ace.settings.loadState('sidebar')}catch(e){}
+        try {
+            ace.settings.loadState('sidebar')
+        } catch (e) {
+        }
     </script>
 
     <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -72,7 +76,7 @@
                     <b class="arrow"></b>
                 </li>
                 <li class="">
-                    <a href="/admin-list/user">
+                    <a href="/admin-list/user?page=1&limit=6">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Danh sách người dùng
                     </a>
@@ -82,6 +86,7 @@
         </li>
     </ul><!-- /.nav-list -->
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+           data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
     </div>
 </div>

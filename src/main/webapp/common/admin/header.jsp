@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp" %>
-<div id="navbar" class="navbar navbar-default          ace-save-state" style="max-height: 20px">
+<div id="navbar" class="navbar navbar-default          ace-save-state" style="max-height: 20px; overflow: hidden">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
             <span class="sr-only">Toggle sidebar</span>
