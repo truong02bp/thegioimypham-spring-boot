@@ -69,7 +69,7 @@
                                     <span class="hamburger-inner"></span>
                                     </span>
                             </button>
-                            <div class="pull-right nav-right">
+                            <div class="pull-right nav-right" style="flex-direction: row;display: flex;">
                                 <div class="navbar-main">
                                     <ul class="navbar-menu">
                                         <li class="dropdown">
@@ -83,7 +83,9 @@
 
                                                     <div class="col-md-6 ">
                                                         <div class=" slideSort">
-                                                            <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;">Các loại sản phẩm</h2>
+                                                            <h2 class="slider-left-title"
+                                                                style=" font-size: 20px;color: #c19b76;font-family: serif;">
+                                                                Các loại sản phẩm</h2>
                                                             <br>
                                                             <ul class="slide-left-list">
                                                                 <li><h3><a
@@ -103,7 +105,8 @@
                                                     </div>
                                                     <div class="col-md-6 ">
                                                         <div class="box-slider-left slideNewproduct slideNewproduct2">
-                                                            <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
+                                                            <h2 class="slider-left-title"
+                                                                style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
                                                                 Sản phẩm bán chạy nhất</h2>
                                                             <div class="box-slideNewproduct">
                                                                 <div class="slideNewproduct-item slideNewproduct-img">
@@ -121,22 +124,6 @@
                                                                 </div>
                                                             </div>
                                                             <br>
-                                                            <%--                                                            <div class="box-slideNewproduct">--%>
-                                                            <%--                                                                <div class="slideNewproduct-item slideNewproduct-img">--%>
-                                                            <%--                                                                    <a href="/san-pham?id=20&name=dakami-vn"><img--%>
-                                                            <%--                                                                            src="<c:url value="/template/images/dakami-vn.jpg"/>"--%>
-                                                            <%--                                                                            alt="product1"--%>
-                                                            <%--                                                                            class="img-responsive"></a>--%>
-                                                            <%--                                                                </div>--%>
-                                                            <%--                                                                <div class="slideNewproduct-item slideNewproduct-text">--%>
-                                                            <%--                                                                    <h4><a href="/san-pham?id=20&name=dakami-vn">Kem--%>
-                                                            <%--                                                                        chống lão hóa Dakami</a></h4>--%>
-                                                            <%--                                                                    <p class="slideProduct-price"--%>
-                                                            <%--                                                                       style="font-size: 16px;margin-top: 0;">790,000--%>
-                                                            <%--                                                                        đ</p>--%>
-                                                            <%--                                                                </div>--%>
-                                                            <%--                                                            </div>--%>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,7 +137,9 @@
 
                                                     <div class="col-md-6 ">
                                                         <div class=" slideSort">
-                                                            <h2 class="slider-left-title"style=" font-size: 20px;color: #c19b76;font-family: serif;">Các loại sản phẩm</h2>
+                                                            <h2 class="slider-left-title"
+                                                                style=" font-size: 20px;color: #c19b76;font-family: serif;">
+                                                                Các loại sản phẩm</h2>
                                                             <br>
                                                             <ul class="slide-left-list">
                                                                 <li><h3><a
@@ -176,7 +165,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="box-slider-left slideNewproduct slideNewproduct2">
-                                                            <h2 class="slider-left-title" style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
+                                                            <h2 class="slider-left-title"
+                                                                style=" font-size: 20px;color: #c19b76;font-family: serif;margin-bottom: 10px">
                                                                 Sản phẩm bán chạy nhất</h2>
                                                             <div class="box-slideNewproduct ">
                                                                 <div class="slideNewproduct-item slideNewproduct-img">
@@ -194,22 +184,6 @@
                                                                 </div>
                                                             </div>
                                                             <br>
-                                                            <%--                                                            <div class="box-slideNewproduct">--%>
-                                                            <%--                                                                <div class="slideNewproduct-item slideNewproduct-img">--%>
-                                                            <%--                                                                    <a href="/san-pham?id=23&name=lefery-vn"><img--%>
-                                                            <%--                                                                            src="<c:url value="/template/images/lefery-vn.jpg"/>"--%>
-                                                            <%--                                                                            alt="product1"--%>
-                                                            <%--                                                                            class="img-responsive"></a>--%>
-                                                            <%--                                                                </div>--%>
-                                                            <%--                                                                <div class="slideNewproduct-item slideNewproduct-text">--%>
-                                                            <%--                                                                    <h4><a href="/san-pham?id=23&name=lefery-vn">Kem--%>
-                                                            <%--                                                                        dưỡng da Lefery</a></h4>--%>
-                                                            <%--                                                                    <p class="slideProduct-price"--%>
-                                                            <%--                                                                       style="font-size: 16px;margin-top: 0;">590,000--%>
-                                                            <%--                                                                        đ</p>--%>
-                                                            <%--                                                                </div>--%>
-                                                            <%--                                                            </div>--%>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,16 +199,32 @@
                                                 <a href="/dang-nhap" class="active-menu">Đăng nhập</a>
                                             </li>
                                         </security:authorize>
-                                        <security:authorize access="isAuthenticated()">
-                                            <li class="dropdown">
-                                                <a href="#" class="active-menu">Xin chào <%=SecurityUtils.getPrincipal().getFullName()%></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="/j_spring_security_logout" class="active-menu">Đăng xuất</a>
-                                            </li>
-                                        </security:authorize>
+                                        <li class="nav-item cta cta-colored"><a href="/gio-hang" class="nav-link">
+                                            <span class="icon-shopping_cart"></span>[0]</a>
+                                        </li>
                                     </ul>
                                 </div>
+
+                                <security:authorize access="isAuthenticated()">
+                                    <div>
+                                        <ul class="nav nav-pills" style="margin-top: 20px;margin-left: 50px;">
+                                            <li class="dropdown">
+                                                <a class="dropdown-toggle"
+                                                   data-toggle="dropdown"
+                                                   href="#"
+                                                   style="border-radius: 20px; height: 40px; width: 40px; background-color: rosybrown; text-align: center">
+                                                    <%=SecurityUtils.getPrincipal().getFullName().charAt(SecurityUtils.getPrincipal().getFullName().lastIndexOf(" ") + 1)%>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <a href="#"> - Thông tin cá nhân</a>
+                                                    <br>
+                                                    <a href="/j_spring_security_logout"> - Đăng xuất</a>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </security:authorize>
                             </div>
 
                         </div>
@@ -305,7 +295,8 @@
                         <div class="row product-gird">
                             <c:forEach var="item" items="${items}">
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="product-item productG" style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                                    <div class="product-item productG"
+                                         style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
                                         <div class="product-image sizeImg"
                                              style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
                                             <img src="<c:url value="/template/images/${item.code}.jpg"/>" alt="product"
@@ -355,7 +346,8 @@
                                 <!-- /product-item -->
                             </c:forEach>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-item productG" style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                                <div class="product-item productG"
+                                     style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
                                     <div class="product-image sizeImg"
                                          style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
                                         <img src="<c:url value="/template/images/sonmoi3.jpg"/>" alt="product"
@@ -404,7 +396,8 @@
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-item productG" style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
+                                <div class="product-item productG"
+                                     style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
                                     <div class="product-image sizeImg"
                                          style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
                                         <img src="<c:url value="/template/images/sonmoi7.jpg"/>" alt="product"
@@ -440,7 +433,8 @@
                                             <div class="product-name">
                                                 <h3 class="product-title">
                                                     <a href="https://go.isclix.com/deep_link/5338615457852929080/5137195332044722903?url=https%3A%2F%2Fbeautyfriend.vn%2Fproducts%2Fson-thoi-sieu-li-the-face-shop-rouge-powder-matte"
-                                                       class="color-setting">Son Thỏi Siêu Lì The Face Shop Rouge Powder Matte</a>
+                                                       class="color-setting">Son Thỏi Siêu Lì The Face Shop Rouge Powder
+                                                        Matte</a>
                                                 </h3>
                                             </div>
                                             <div class="product-price">

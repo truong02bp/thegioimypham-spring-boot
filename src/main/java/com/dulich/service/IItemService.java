@@ -10,6 +10,9 @@ public interface IItemService
     List<ItemDto> findAll(Pageable pageable);
     List<ItemDto> findAllByWeb(String web);
     List<ItemDto> findAllByCategoryId(Long id , Pageable pageable);
+    ItemDto findOne(Long id);
+    ItemDto save(ItemDto itemDto);
+    void delete(Long id);
     Long getTotalPage(Long id);
     Long getTotalPage();
 }

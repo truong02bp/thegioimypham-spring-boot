@@ -1,9 +1,12 @@
 package com.dulich.controller.admin;
 
+import com.dulich.converter.CategoryConverter;
+import com.dulich.dto.CategoryDto;
 import com.dulich.dto.ItemDto;
 import com.dulich.dto.UserDto;
 import com.dulich.entity.UserEntity;
 import com.dulich.repository.UserRepository;
+import com.dulich.service.ICategoryService;
 import com.dulich.service.IItemService;
 import com.dulich.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,8 @@ public class HomeController
     private IItemService iItemService;
     @Autowired
     private IUserService iUserService;
+    @Autowired
+    private ICategoryService iCategoryService;
     @GetMapping("/admin-home")
     public ModelAndView homePage()
     {
@@ -42,6 +47,19 @@ public class HomeController
         List<ItemDto> list = iItemService.findAll(pageable);
         model.setList(list);
         mav.addObject("model",model);
+        return mav;
+    }
+    @GetMapping("/admin-item/chinh-sua")
+    public ModelAndView updateCreate(@RequestParam(value = "id" , required = false) Long id)
+    {
+        ModelAndView mav = new ModelAndView("admin/createUpdate");
+        ItemDto model = ItemDto.getPrincipal();
+        if (id != null)
+        {
+            model = iItemService.findOne(id);
+        }
+        mav.addObject("model",model);
+        mav.addObject("categories",iCategoryService.findAll());
         return mav;
     }
     @GetMapping("/admin-list/user")

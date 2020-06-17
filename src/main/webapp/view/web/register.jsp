@@ -70,11 +70,11 @@
                 dataType: 'json',
                 success: function (result) {
                     console.log(result.id);
-                    window.location.href = "/dang-ky?id=" + result.id + "&messenge=success_add";
+                    window.location.href = "/dang-nhap?messenge=success_add";
                 },
                 error: function (result)
                 {
-                    window.location.href = "/dang-ky?messenge=fail_add";
+                    window.location.href = "/dang-ky?messenge=usernameIsUsed";
                 }
             }
         )

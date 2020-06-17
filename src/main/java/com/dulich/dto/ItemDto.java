@@ -10,12 +10,19 @@ public class ItemDto extends AbstractDto<ItemDto>
     private String code;
     private String link;
     private String shortDescription;
-    private String khuyemai;
+    private String khuyenmai;
     private String web;
     private Long sale;
     private String giaSau;
     private String giaTruoc;
-
+    private static ItemDto principal= null;
+    public static ItemDto getPrincipal()
+    {
+        if (principal == null)
+            return new ItemDto();
+        else
+            return principal;
+    }
     public String getCategoryCode() {
         return categoryCode;
     }
@@ -80,12 +87,12 @@ public class ItemDto extends AbstractDto<ItemDto>
         this.shortDescription = shortDescription;
     }
 
-    public String getKhuyemai() {
-        return khuyemai;
+    public String getKhuyenmai() {
+        return khuyenmai;
     }
 
-    public void setKhuyemai(String khuyemai) {
-        this.khuyemai = khuyemai;
+    public void setKhuyenmai(String khuyenmai) {
+        this.khuyenmai = khuyenmai;
     }
 
     public String getWeb() {

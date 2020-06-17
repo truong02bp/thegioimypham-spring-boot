@@ -14,12 +14,16 @@
 </head>
 <body>
 <div class="main-content">
+    <a href="/admin-item/chinh-sua" class="btn btn-primary btn-lg active">Thêm sản phẩm</a>
+    <button type="button" class="btn btn-primary btn-lg active" id="deleteItem">Xóa sản phẩm</button>
     <form action="/admin-list/item" method="get" id="formSubmit">
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +31,11 @@
                 <tr>
                     <td>${item.id}</td>
                     <td>${item.name}</td>
+                    <td>${item.giaSau}</td>
+                    <td>
+                        <a href="/admin-item/chinh-sua?id=${item.id}" class="btn btn-outline-primary" role="button">Sửa</a>
+                        <input type="checkbox" id="checkbox_${item.id}" value="${item.id}">
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -60,6 +69,37 @@
             console.info(page + ' (from event listening)');
         });
     })
+    $('#deleteItem').click(
+            function(e)
+            {
+                e.preventDefault();
+                var ids = $('tbody input[type=checkbox]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                xoa(ids)
+            }
+    )
+    function xoa(data)
+    {
+        $.ajax(
+            {
+                url: "/api-item",
+                type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success:function (result)
+                {
+                    window.location.href = "/admin-list/item?page="+currentPage+"&limit=6&messenge=delete_sucess";
+                },
+                error: function (error)
+                {
+                    window.location.href = "/admin-list/item?page="+currentPage+"&limit=6&messenge=delete_fail";
+                    console.log(error);
+                }
+            }
+        )
+    }
+
 </script>
 </body>
 </html>

@@ -26,4 +26,10 @@ public class HomeController {
     {
         return "login";
     }
+    @GetMapping("/gio-hang")
+    public ModelAndView pageGioHang()
+    {
+        ModelAndView mav = new ModelAndView("web/cart");
+        return mav;
+    }
 }

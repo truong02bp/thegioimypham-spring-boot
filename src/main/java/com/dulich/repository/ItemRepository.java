@@ -10,5 +10,6 @@ public interface ItemRepository extends JpaRepository<ItemEntity,Long>
 {
     List<ItemEntity> findAllByWeb(String web);
     List<ItemEntity> findAllByCategoryId(Long id , Pageable pageable);
+    ItemEntity findItemEntityById(Long id);
     Long countByCategoryId(Long id);
 }

@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +51,33 @@ public class ItemService implements IItemService
         for (ItemEntity itemEntity : items)
             rs.add(itemConverter.toDto(itemEntity));
         return rs;
+    }
+
+    @Override
+    public ItemDto findOne(Long id)
+    {
+        return itemConverter.toDto(itemRepository.findItemEntityById(id));
+    }
+
+    @Override
+    @Transactional
+    public ItemDto save(ItemDto itemDto)
+    {
+        ItemEntity entity = itemConverter.toEntity(itemDto);
+        if (itemDto.getId() == null)
+            return itemConverter.toDto(itemRepository.save(entity));
+        else
+        {
+            entity.setId(itemDto.getId());
+            return itemConverter.toDto(itemRepository.save(entity));
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        itemRepository.deleteById(id);
     }
 
     @Override
