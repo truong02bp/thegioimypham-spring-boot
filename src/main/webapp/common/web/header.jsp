@@ -26,7 +26,7 @@
                                     <span class="hamburger-inner"></span>
                                     </span>
                         </button>
-                        <div class="pull-right nav-right" style="flex-direction: row;display: flex;">
+                        <div class="pull-right nav-right">
                             <div class="navbar-main">
                                 <ul class="navbar-menu">
                                     <li class="dropdown">
@@ -46,15 +46,15 @@
                                                         <br>
                                                         <ul class="slide-left-list">
                                                             <li><h3><a
-                                                                    href="/page-san-pham?name=son-moi&page=1&limit=6">Son
+                                                                    href="/page-san-pham?name=son-moi&page=1&limit=9">Son
                                                                 môi</a></h3></li>
                                                             <br>
                                                             <li><h3><a
-                                                                    href="/page-san-pham?name=mascara&page=1&limit=6">Mascara</a>
+                                                                    href="/page-san-pham?name=mascara&page=1&limit=9">Mascara</a>
                                                             </h3></li>
                                                             <br>
                                                             <li><h3><a
-                                                                    href="/page-san-pham?name=kem-phan&page=1&limit=6">Kem
+                                                                    href="/page-san-pham?name=kem-phan&page=1&limit=9">Kem
                                                                 phủ - phấn</a></h3></li>
                                                         </ul>
                                                     </div>
@@ -98,18 +98,18 @@
                                                         <br>
                                                         <ul class="slide-left-list">
                                                             <li><h3><a
-                                                                    href="/page-san-pham?name=kem-duong-da&page=1&limit=6">Kem
+                                                                    href="/page-san-pham?name=kem-duong-da&page=1&limit=9">Kem
                                                                 dưỡng trắng da</a></h3></li>
                                                             <br>
                                                             <li><h3><a
-                                                                    href="/page-san-pham?name=sua-rua-mat&page=1&limit=6">Sữa
+                                                                    href="/page-san-pham?name=sua-rua-mat&page=1&limit=0">Sữa
                                                                 rửa mặt</a></h3></li>
                                                             <br>
-                                                            <li><h3><a href="/page-san-pham?name=mat-na&page=1&limit=6">Mặt
+                                                            <li><h3><a href="/page-san-pham?name=mat-na&page=1&limit=9">Mặt
                                                                 nạ dưỡng da</a></h3></li>
                                                             <br>
                                                             <li><h3><a
-                                                                    href="/page-san-pham?name=tay-trang&page=1&limit=6">Tẩy
+                                                                    href="/page-san-pham?name=tay-trang&page=1&limit=9">Tẩy
                                                                 trang</a></h3></li>
                                                         </ul>
                                                     </div>
@@ -150,8 +150,23 @@
                                             <a href="/dang-nhap" class="active-menu">Đăng nhập</a>
                                         </li>
                                     </security:authorize>
-                                    <li class="nav-item cta cta-colored"><a href="/gio-hang" class="nav-link">
-                                        <span class="icon-shopping_cart"></span>[0]</a>
+                                    <li class="dropdown" id="cart-parent">
+                                        <a href="/gio-hang"><img src="<c:url value="/template/images/cart.png"/>">
+                                            <c:if test="${not empty carts && sessionScope.carts.size()!= 0}">
+                                                <div class="cart-alert">
+                                                        <span>
+                                                                ${sessionScope.carts.size()}
+                                                        </span>
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${empty carts || sessionScope.carts.size() == 0}">
+                                                <div>
+                                                        <span>
+                                                                ${sessionScope.carts.size()}
+                                                        </span>
+                                                </div>
+                                            </c:if>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

@@ -17,40 +17,14 @@
     <meta name="description" content="The Garden theme tempalte">
     <meta name="keywords" content="The Garden theme template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="icon" href="images/favicon.ico" type="image/gif" sizes="16x16"> -->
-    <!--Icons fonts-->
-    <link href="<c:url value="/template/vendor/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/vendor/line-awesome/css/line-awesome.min.css"/>" rel="stylesheet">
-
-    <link href="<c:url value="/template/vendor/themify-icons/themify-icons.css"/>" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap"
-          rel="stylesheet">
-    <!--Styles-->
-    <link href="<c:url value="/template/vendor/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/vendor/animsition/dist/css/animsition.min.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/vendor/animate.css/source/slide_fwd_center/slide_fwd_center.css"/>"
-          rel="stylesheet">
-    <link href="<c:url value="/template/vendor/owl-carousel/css/owl.carousel.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/vendor/css-hamburgers/css/hamburgers.min.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/vendor/slick/css/slick.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/vendor/range_filter/css/jquery-ui.css"/>" rel="stylesheet">
-    <!-- Revolution -->
-    <link rel="stylesheet" type="text/css" href="<c:url value="/template/vendor/slider-revolution/css/settings.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/template/vendor/slider-revolution/css/layers.css"/>">
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value="/template/vendor/slider-revolution/css/navigation.css"/>">
+    <%@include file="/common/common-css-js.jsp" %>
+    <%@include file="/common/slide-js.jsp" %>
+    <%--add slider js --%>
     <!--Theme style-->
-    <link href="<c:url value="/template/css/main.css"/>" rel="stylesheet">
-    <link href="<c:url value="/template/css/responsive.css"/>" rel="stylesheet">
 </head>
 
 <body>
 <div class="the-garden">
-    <div class="search">
-        <input type="text" class="ip-search" placeholder="Search for...">
-    </div>
     <header id="header" class="header-serviceV2 aaaa">
         <div class="home-menu">
             <nav class="navbar-core navbar-white navbar-v1 headroom headroom--not-bottom headroom--pinned headroom--top">
@@ -69,7 +43,7 @@
                                     <span class="hamburger-inner"></span>
                                     </span>
                             </button>
-                            <div class="pull-right nav-right" style="flex-direction: row;display: flex;">
+                            <div class="pull-right nav-right">
                                 <div class="navbar-main">
                                     <ul class="navbar-menu">
                                         <li class="dropdown">
@@ -124,6 +98,22 @@
                                                                 </div>
                                                             </div>
                                                             <br>
+                                                            <div class="box-slideNewproduct">
+                                                                <div class="slideNewproduct-item slideNewproduct-img">
+                                                                    <a href="/san-pham?id=20&name=dakami-vn"><img
+                                                                            src="<c:url value="/template/images/dakami-vn.jpg"/>"
+                                                                            alt="product1"
+                                                                            class="img-responsive"></a>
+                                                                </div>
+                                                                <div class="slideNewproduct-item slideNewproduct-text">
+                                                                    <h4><a href="/san-pham?id=20&name=dakami-vn">Kem
+                                                                        chống lão hóa Dakami</a></h4>
+                                                                    <p class="slideProduct-price"
+                                                                       style="font-size: 16px;margin-top: 0;">790,000
+                                                                        đ</p>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -184,6 +174,21 @@
                                                                 </div>
                                                             </div>
                                                             <br>
+                                                            <div class="box-slideNewproduct">
+                                                                <div class="slideNewproduct-item slideNewproduct-img">
+                                                                    <a href="/san-pham?id=23&name=lefery-vn"><img
+                                                                            src="<c:url value="/template/images/lefery-vn.jpg"/>"
+                                                                            alt="product1"
+                                                                            class="img-responsive"></a>
+                                                                </div>
+                                                                <div class="slideNewproduct-item slideNewproduct-text">
+                                                                    <h4><a href="/san-pham?id=23&name=lefery-vn">Kem
+                                                                        dưỡng da Lefery</a></h4>
+                                                                    <p class="slideProduct-price"
+                                                                       style="font-size: 16px;margin-top: 0;">590,000
+                                                                        đ</p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -199,12 +204,34 @@
                                                 <a href="/dang-nhap" class="active-menu">Đăng nhập</a>
                                             </li>
                                         </security:authorize>
-                                        <li class="nav-item cta cta-colored"><a href="/gio-hang" class="nav-link">
-                                            <span class="icon-shopping_cart"></span>[0]</a>
+                                        <li class="dropdown" id="cart-parent">
+                                            <a href="/gio-hang"><img src="<c:url value="/template/images/cart.png"/>">
+                                                <c:if test="${not empty carts && sessionScope.carts.size()!= 0}">
+                                                    <div class="cart-alert">
+                                                        <span>${sessionScope.carts.size()}</span>
+                                                    </div>
+                                                </c:if>
+                                                <c:if test="${empty carts || sessionScope.carts.size() == 0}">
+                                                    <div>
+                                                        <span>
+                                                                ${sessionScope.carts.size()}
+                                                        </span>
+                                                    </div>
+                                                </c:if>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
-
+                                <div class="search2">
+                                    <ul>
+                                        <li>
+                                            <input type="text" id="search" placeholder="Search">
+                                        </li>
+                                        <li>
+                                            <div class="fa fa-search " id="search-button"></div>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <security:authorize access="isAuthenticated()">
                                     <div>
                                         <ul class="nav nav-pills" style="margin-top: 20px;margin-left: 50px;">
@@ -287,15 +314,16 @@
     <section class="latest-product">
         <div class="container">
             <div class="latest-product-title title-text">
-                <h3 style="font-size: 25px;color: #c19b76;font-family: serif;">Một số sản phẩm của chúng tôi</h3>
+                <h3 class="wow animate__backInUp" data-wow-duration="0.5s"
+                    style="font-size: 25px;color: #c19b76;font-family: serif;">Một số sản phẩm của chúng tôi</h3>
             </div>
             <div class="detail-navtab latest-product-tab">
                 <div class="tab-content detail-tab">
                     <div id="all" class="tab-pane fade  active in">
                         <div class="row product-gird">
                             <c:forEach var="item" items="${items}">
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="product-item productG"
+                                <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp" data-wow-duration="0.5s">
+                                    <div class="product-item productG "
                                          style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
                                         <div class="product-image sizeImg"
                                              style="max-width: 270px;max-height: 300px;float: unset;position: relative;width: 100%;height: 100%">
@@ -307,9 +335,9 @@
                                             <div class="arrIcon2">
                                                 <ul>
                                                     <li>
-                                                        <a href="/san-pham?id=${item.id}&name=${item.code}">
+                                                        <div class="cart-button" data-id="${item.id}">
                                                             <i class="la la-shopping-cart"></i>
-                                                        </a>
+                                                        </div>
                                                     </li>
                                                     <li style="margin-left: 6px;margin-right: 6px;">
                                                         <a href="/san-pham?id=${item.id}&name=${item.code}">
@@ -345,7 +373,7 @@
                                 </div>
                                 <!-- /product-item -->
                             </c:forEach>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp" data-wow-duration="0.5s">
                                 <div class="product-item productG"
                                      style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
                                     <div class="product-image sizeImg"
@@ -395,7 +423,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3 col-sm-6 col-xs-12 wow animate__backInUp" data-wow-duration="0.5s">
                                 <div class="product-item productG"
                                      style="margin-top: 0;     min-height: 360px;display: flex;flex-direction: column;align-items: center;">
                                     <div class="product-image sizeImg"
@@ -454,7 +482,8 @@
     <section class="blog">
         <div class="container">
             <div class="row" style="margin-top: 30px">
-                <div class="col-md-6 relative" style="margin-bottom: 50px">
+                <div class="col-md-6 relative wow animate__backInLeft" data-wow-duration="0.5s"
+                     style="margin-bottom: 50px">
                     <img src="//theme.hstatic.net/1000205447/1000553611/14/promo_banner.jpg?v=2617" alt="logo"
                          class="img-responsive">
                     <div class="arrival">
@@ -466,7 +495,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6 relative" style="    margin-bottom: 15px;">
+                <div class="col-md-6 relative wow animate__backInRight" data-wow-duration="0.5s"
+                     style="    margin-bottom: 15px;">
                     <img src="//theme.hstatic.net/1000205447/1000553611/14/2promo_banner.jpg?v=2617" alt="logo"
                          class=" img-responsive">
                     <div class="arrival">
@@ -480,11 +510,13 @@
             </div>
 
             <div class="row" style="margin-top: 80px">
-                <div class="col-md-6 relative" style="    margin-bottom: 15px;">
+                <div class="col-md-6 relative wow animate__backInLeft" data-wow-duration="0.5s"
+                     style="    margin-bottom: 15px;">
                     <img src="//theme.hstatic.net/1000205447/1000553611/14/3promo_banner.jpg?v=2617" alt="logo"
                          class=" img-responsive">
                 </div>
-                <div class="col-md-6 relative" style="    margin-bottom: 15px;">
+                <div class="col-md-6 relative wow animate__backInRight" data-wow-duration="0.5s"
+                     style="    margin-bottom: 15px;">
                     <img src="//theme.hstatic.net/1000205447/1000553611/14/4promo_banner.jpg?v=2617" alt="logo"
                          class=" img-responsive">
                 </div>
@@ -492,7 +524,7 @@
             <div class="latest-product-title title-text" style="    margin-bottom: 30px;">
                 <h3 style="font-size: 25px;color: #c19b76;font-family: serif;">Xu hướng làm đẹp</h3>
             </div>
-            <div class="row">
+            <div class="row wow animate__backInUp" data-wow-duration="0.5s">
                 <div class="col-md-4">
                     <div class="relative">
                         <img src="//file.hstatic.net/1000205447/article/lam-dep-nhanh-1_933c2e768154459f9a611d625d9af3a2_eb53d027c6254b9e8fd6859533d0dbdc_large.jpg"
@@ -544,7 +576,7 @@
             </div>
         </div>
     </section>
-    <section class="trademark trademarkV2 clearfix">
+    <section class="trademark trademarkV2 clearfix wow animate__backInUp" data-wow-duration="0.5s">
         <div class="container">
             <div class="trademark-listV2 owl-carousel owl-loaded">
                 <a href="#"><img src="//theme.hstatic.net/1000205447/1000553611/14/logo-6.png?v=2617"
@@ -617,41 +649,7 @@
         </div>
     </footer>
 </div>
-<script src="<c:url value="/template/vendor/jquery/dist/jquery.min.js"/>"></script>
-<script src="<c:url value="/template/vendor/bootstrap/dist/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="/template/vendor/jquery_easing/jquery.easing.min.js"/>"></script>
-<script src="<c:url value="/template/vendor/owl-carousel/js/owl.carousel.js"/>"></script>
-<script src="<c:url value="/template/vendor/slick/js/slick.js"/>"></script>
-<script src="<c:url value="/template/vendor/isotope/js/isotope.js"/>"></script>
-<script src="<c:url value="/template/vendor/isotope/js/imagesloaded.pkgd.js"/>"></script>
-<script src="<c:url value="/template/vendor/range_filter/js/jquery-ui.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/jquery.themepunch.tools.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/jquery.themepunch.revolution.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.actions.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.carousel.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.kenburn.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.layeranimation.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.migration.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.navigation.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.parallax.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.slideanims.min.js"/>"></script>
-<script type="text/javascript"
-        src="<c:url value="/template/vendor/slider-revolution/js/revolution.extension.video.min.js"/>"></script>
-<script src="<c:url value="/template/script/main.js"/>"></script>
-<!-- Zoom slide -->
-<script src="<c:url value="/template/vendor/slide-zoom/js/jquery.modernizr.js"/>"></script>
-<script src="<c:url value="/template/vendor/slide-zoom/js/instafeed.min.js"/>"></script>
-<script src="<c:url value="/template/vendor/slide-zoom/js/elevatezoom.min.js"/>"></script>
-<script src="<c:url value="/template/vendor/slide-zoom/js/jquery.fancybox.min.js"/>"></script>
+
+<script src="<c:url value="/template/custom.js"/>" type="text/javascript"></script>
 </body>
 </html>

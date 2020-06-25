@@ -9,9 +9,10 @@ public interface IItemService
 {
     List<ItemDto> findAll(Pageable pageable);
     List<ItemDto> findAllByWeb(String web);
-    List<ItemDto> findAllByCategoryId(Long id , Pageable pageable);
+    List<ItemDto> findAllByCategoryId(Long id , Pageable pageable , String sort);
     ItemDto findOne(Long id);
     ItemDto save(ItemDto itemDto);
+    List<ItemDto> searchByName(String itemName , int limit , int offset);
     void delete(Long id);
     Long getTotalPage(Long id);
     Long getTotalPage();

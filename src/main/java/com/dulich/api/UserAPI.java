@@ -22,6 +22,7 @@ public class UserAPI
     @PostMapping("/api-user")
     public UserDto addUser(@RequestBody UserDto userDto, HttpServletResponse response) throws IOException
     {
+        System.out.println(userDto.getEmail());
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String pass = userDto.getPassword();
         userDto.setPassword(bCryptPasswordEncoder.encode(pass));

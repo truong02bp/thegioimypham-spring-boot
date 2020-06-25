@@ -10,10 +10,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class ProductHomeController
@@ -23,9 +26,11 @@ public class ProductHomeController
     @Autowired
     private IItemService iItemService;
     @RequestMapping(value = {"/san-pham"} , method = RequestMethod.GET)
-    public ModelAndView product()
+    public ModelAndView product(@RequestParam("id") Long id)
     {
         ModelAndView mav = new ModelAndView("web/product");
+        ItemDto model = iItemService.findOne(id);
+        mav.addObject("item",model);
         return mav;
     }
     @RequestMapping(value = {"/page-san-pham"} , method = RequestMethod.GET)
@@ -42,15 +47,24 @@ public class ProductHomeController
         model.setPage(page);
         model.setLimit(limit);
         Pageable pageable = PageRequest.of(page-1,limit);
-        if (sort.equals("asc"))
-            pageable = PageRequest.of(page-1,limit,Sort.by("giaSau").ascending());
-        else
-            if (sort.equals("desc"))
-                pageable = PageRequest.of(page-1,limit,Sort.by("giaSau").descending());
-        model.setList(iItemService.findAllByCategoryId(category.getId(),pageable));
+        model.setList(iItemService.findAllByCategoryId(category.getId(),pageable,sort));
         model.setTotalPage((int) Math.ceil((double) iItemService.getTotalPage(category.getId())/limit));
         mav.addObject("model",model);
         mav.addObject("sort",sort);
+        return mav;
+    }
+    @GetMapping("/page-tim-kiem")
+    public ModelAndView pageSearch(@RequestParam(value = "itemName" , required = false) String itemName,
+                                   @RequestParam("page") int page,
+                                   @RequestParam("limit") int limit)
+    {
+        ModelAndView mav = new ModelAndView("web/pageProduct");
+        List<ItemDto> list = iItemService.searchByName("Dakami",limit,(page-1)*limit);
+        ItemDto model = new ItemDto();
+        model.setCategoryName(list.get(0).getCategoryName());
+        model.setCategoryCode(list.get(0).getCategoryCode());
+        model.setList(list);
+        mav.addObject("model",model);
         return mav;
     }
 }

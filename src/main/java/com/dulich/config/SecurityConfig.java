@@ -19,22 +19,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() // passwordEncoder is enabled
-//    {
-//        return new BCryptPasswordEncoder();
-//    }
-
     @Bean
-    public static NoOpPasswordEncoder passwordEncoder() // passwordEncoder is disable
+    public BCryptPasswordEncoder passwordEncoder() // passwordEncoder is enabled
     {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
+
+//    @Bean
+//    public static NoOpPasswordEncoder passwordEncoder() // passwordEncoder is disable
+//    {
+//        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+//    }
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
     {
-//        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder()); // passwordEncoder is enabled
-        auth.userDetailsService(customUserDetailsService); // passwordEncoder is disable
+        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder()); // passwordEncoder is enabled
+//        auth.userDetailsService(customUserDetailsService); // passwordEncoder is disable
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception

@@ -44,9 +44,16 @@ public class ItemService implements IItemService
     }
 
     @Override
-    public List<ItemDto> findAllByCategoryId(Long id , Pageable pageable)
+    public List<ItemDto> findAllByCategoryId(Long id , Pageable pageable,String sort)
     {
-        List<ItemEntity> items = itemRepository.findAllByCategoryId(id,pageable);
+        List<ItemEntity> items = new ArrayList<>();
+        if (sort.equals("desc"))
+           items = itemRepository.findByCategoryIdOrderByGiaSauDesc(id,pageable);
+        else
+            if (sort.equals("asc"))
+                items = itemRepository.findByCategoryIdOrderByGiaSauAsc(id,pageable);
+            else
+                items = itemRepository.findAllByCategoryId(id,pageable);
         List<ItemDto> rs = new ArrayList<>();
         for (ItemEntity itemEntity : items)
             rs.add(itemConverter.toDto(itemEntity));
@@ -72,6 +79,15 @@ public class ItemService implements IItemService
             return itemConverter.toDto(itemRepository.save(entity));
         }
 
+    }
+
+    @Override
+    public List<ItemDto> searchByName(String itemName , int limit , int offset) {
+        List<ItemEntity> entities = itemRepository.searchByName(itemName,limit,offset);
+        List<ItemDto> rs = new ArrayList<>();
+        for (ItemEntity itemEntity : entities)
+            rs.add(itemConverter.toDto(itemEntity));
+        return rs;
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.dulich.dto.CategoryDto;
 import com.dulich.dto.ItemDto;
 import com.dulich.entity.ItemEntity;
 import com.dulich.service.ICategoryService;
+import com.dulich.ultils.PriceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,7 @@ public class ItemConverter
         itemEntity.setName(itemDto.getName());
         itemEntity.setCode(itemDto.getCode());
         itemEntity.setContent(itemDto.getContent());
-        itemEntity.setGiaSau(itemDto.getGiaSau());
+        itemEntity.setGiaSau(PriceUtil.toLong(itemDto.getGiaSau()));
         itemEntity.setGiaTruoc(itemDto.getGiaTruoc());
         itemEntity.setSale(itemDto.getSale());
         itemEntity.setKhuyenMai(itemDto.getKhuyenmai());
@@ -40,7 +41,7 @@ public class ItemConverter
         itemDto.setName(itemEntity.getName());
         itemDto.setCode(itemEntity.getCode());
         itemDto.setContent(itemEntity.getContent());
-        itemDto.setGiaSau(itemEntity.getGiaSau());
+        itemDto.setGiaSau(PriceUtil.toString(itemEntity.getGiaSau()));
         itemDto.setGiaTruoc(itemEntity.getGiaTruoc());
         itemDto.setSale(itemEntity.getSale());
         itemDto.setKhuyenmai(itemEntity.getKhuyenMai());

@@ -10,13 +10,16 @@
 <html>
 <head>
     <title>${model.categoryName}</title>
+    <script src="<c:url value='/template/assets/js/jquery-2.1.4.min.js'/>"></script>
+    <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>" type="text/javascript"></script>
 </head>
 <body>
 <section class="page-shop-slidebar" style="    padding-top: 60px;">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-md-push-3">
-                <form action="/page-san-pham?name=${model.categoryCode}&page=${model.page}&limit=${model.limit}" id="formSubmit" method="GET">
+                <form action="/page-san-pham?name=${model.categoryCode}&page=${model.page}&limit=${model.limit}"
+                      id="formSubmit" method="GET">
                     <h3 style="font-size: 18px;font-weight: bold;margin-top: 30px;margin-bottom: 10px">Sản phẩm của
                         chúng tôi</h3>
                     <div class="box-fitter clearfix">
@@ -26,8 +29,8 @@
                                 <li>
                                     <div class="dropdown filterDrop">
                                         <a class=" dropdown-toggle" type="button" data-toggle="dropdown"
-                                           aria-expanded="false">
-                                            <c:if test="${sort == null}">
+                                           aria-expanded="true">
+                                            <c:if test="${sort == ''}">
                                                 Giá thành
                                             </c:if>
                                             <c:if test="${sort == 'asc'}">
@@ -39,8 +42,12 @@
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/page-san-pham?name=${model.categoryCode}&page=1&limit=6&sort=asc">Giá tăng dần</a></li>
-                                            <li><a href="/page-san-pham?name=${model.categoryCode}&page=1&limit=6&sort=desc">Giá giảm dần</a></li>
+                                            <li>
+                                                <a href="/page-san-pham?name=${model.categoryCode}&page=1&limit=9&sort=asc">Giá
+                                                    tăng dần</a></li>
+                                            <li>
+                                                <a href="/page-san-pham?name=${model.categoryCode}&page=1&limit=9&sort=desc">Giá
+                                                    giảm dần</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -49,11 +56,11 @@
                     </div>
                     <div class="row">
                         <c:forEach var="item" items="${model.list}">
-                            <div class="col-md-4">
-                                <div class="productG ">
+                            <div class="col-md-4 wow animate__backInUp" data-wow-duration="0.5s">
+                                <div class="productG">
                                     <div class="sizeImg" style="width: 100%;float: none">
                                         <img src="<c:url value="/template/images/${item.code}.jpg"/>" alt="product1"
-                                             class="img-responsive"/>
+                                             class="img-responsive" style="height: 240px;width: 270px"/>
                                         <div class="arrIcon"></div>
                                         <c:if test="${item.sale == 0}">
                                             <div class="box-posi">HOT</div>
@@ -62,31 +69,67 @@
                                             <div class="box-posi">-${item.sale}%</div>
                                         </c:if>
                                         <div class="arrIcon2">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="la la-shopping-cart"></i>
-                                                    </a>
-                                                </li>
-                                                <li style="margin-left: 6px;margin-right: 6px;">
-                                                    <a href="#">
 
+                                            <ul>
+                                                <c:if test="${item.web == 'accesstrade'}">
+                                                    <li>
+                                                        <div class="cart-button" data-id="${item.id}">
+                                                            <i class="la la-shopping-cart"></i>
+                                                        </div>
+                                                    </li>
+                                                    <li style="margin-left: 6px;margin-right: 6px;">
+                                                        <a href="${item.link}">
+
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="${item.link}">
+
+                                                            <i class="la la-heart-o"></i>
+                                                        </a>
+                                                    </li>
+                                                </c:if>
+                                                <c:if test="${item.web == 'adflex'}">
+                                                <li style="margin-left: 6px;margin-right: 6px;">
+                                                    <a href="/san-pham?id=${item.id}&name=${item.code}">
                                                         <i class="la la-eye"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/san-pham?id=${item.id}&name=${item.code}">
 
                                                         <i class="la la-heart-o"></i>
                                                     </a>
-                                                </li>
+                                                    </c:if>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="sizeImgCalc"
-                                         style="width: 100%;float: none;padding-left: 0;padding-bottom: 7px;">
-                                        <h3>${item.name}</h3>
-                                        <h4>${item.giaSau}</h4>
+
+                                    <div class="product-text clearfix">
+                                        <div class="product-left pull-left"
+                                             style="padding-top: 20px;padding-bottom: 15px;">
+                                            <div class="product-name">
+                                                <h4 class="product-title">
+                                                    <c:if test="${item.web == 'adflex'}">
+                                                        <a href="/san-pham?id=${item.id}&name=${item.code}">
+                                                            <h4>${item.name}</h4>
+                                                        </a>
+                                                    </c:if>
+                                                    <c:if test="${item.web == 'accesstrade'}">
+                                                        <a href="${item.link}">
+                                                            <h4>${item.name}</h4>
+                                                        </a>
+                                                    </c:if>
+                                                </h4>
+                                            </div>
+                                            <div class="product-price">
+                                                <c:if test="${item.sale != 0}">
+                                                    <span class="price1"> ${item.giaTruoc}</span>
+                                                </c:if>
+                                                <span class="price">${item.giaSau}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,20 +148,20 @@
                 <div class=" slideSort">
                     <h3 class="slider-left-title">Trang điểm</h3>
                     <ul class="slide-left-list">
-                        <li><a href="/page-san-pham?name=son-moi&page=1&limit=6">Son môi</a></li>
-                        <li><a href="/page-san-pham?name=son-duong&page=1&limit=6">Son dưỡng</a></li>
-                        <li><a href="/page-san-pham?name=mascara&page=1&limit=6">Mascara</a></li>
-                        <li><a href="/page-san-pham?name=kem-phan&page=1&limit=6">Kem phủ - phấn</a></li>
+                        <li><a href="/page-san-pham?name=son-moi&page=1&limit=9">Son môi</a></li>
+                        <li><a href="/page-san-pham?name=son-duong&page=1&limit=9">Son dưỡng</a></li>
+                        <li><a href="/page-san-pham?name=mascara&page=1&limit=9">Mascara</a></li>
+                        <li><a href="/page-san-pham?name=kem-phan&page=1&limit=9">Kem phủ - phấn</a></li>
                     </ul>
                 </div>
                 <div class="lineAbout" style="width: 100%;height: 1px"></div>
                 <div class=" slideSort">
                     <h3 class="slider-left-title">Chăm sóc da</h3>
                     <ul class="slide-left-list">
-                        <li><a href="/page-san-pham?name=kem-duong-da&page=1&limit=6">Kem dưỡng trắng da</a></li>
-                        <li><a href="/page-san-pham?name=sua-rua-mat&page=1&limit=6">Sữa rửa mặt</a></li>
-                        <li><a href="/page-san-pham?name=mat-na&page=1&limit=6">Mặt nạ dưỡng da</a></li>
-                        <li><a href="/page-san-pham?name=tay-trang&page=1&limit=6">Tẩy trang</a></li>
+                        <li><a href="/page-san-pham?name=kem-duong-da&page=1&limit=9">Kem dưỡng trắng da</a></li>
+                        <li><a href="/page-san-pham?name=sua-rua-mat&page=1&limit=9">Sữa rửa mặt</a></li>
+                        <li><a href="/page-san-pham?name=mat-na&page=1&limit=9">Mặt nạ dưỡng da</a></li>
+                        <li><a href="/page-san-pham?name=tay-trang&page=1&limit=9">Tẩy trang</a></li>
                     </ul>
                 </div>
                 <div class="lineAbout" style="width: 100%;height: 1px"></div>
@@ -244,7 +287,10 @@
     </div>
     </div>
 </section>
+<script src="<c:url value="/template/assets/js/jquery.min.map"/>"></script>
 <script type="text/javascript">
+    $('#pagination').find("li.first").remove();
+    $('#pagination').find("li.last").remove();
     var totalPage = ${model.totalPage};
     var currentPage = ${model.page};
     var limit = ${model.limit};
@@ -266,5 +312,6 @@
         });
     });
 </script>
+<script src="<c:url value="/template/custom.js"/>" type="text/javascript"></script>
 </body>
 </html>

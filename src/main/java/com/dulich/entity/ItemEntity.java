@@ -17,7 +17,7 @@ public class ItemEntity extends BaseEntity
     @Column (name = "giatruoc")
     private String giaTruoc;
     @Column (name = "giasau")
-    private String giaSau;
+    private Long giaSau;
     @Column (name = "sale")
     private Long sale;
     @Column (name = "link" , columnDefinition = "text")
@@ -61,11 +61,11 @@ public class ItemEntity extends BaseEntity
         this.giaTruoc = giaTruoc;
     }
 
-    public String getGiaSau() {
+    public Long getGiaSau() {
         return giaSau;
     }
 
-    public void setGiaSau(String giaSau) {
+    public void setGiaSau(Long giaSau) {
         this.giaSau = giaSau;
     }
 

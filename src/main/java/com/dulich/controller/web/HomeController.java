@@ -1,20 +1,22 @@
 package com.dulich.controller.web;
 
-import com.dulich.entity.UserEntity;
-import com.dulich.repository.UserRepository;
+import com.dulich.service.ICartService;
 import com.dulich.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+
 @Controller
+@SessionAttributes({"carts"})
 public class HomeController {
 
     @Autowired
     private IItemService iItemService;
+    @Autowired
+    private ICartService iCartService;
+
     @RequestMapping(value = {"/trang-chu"} , method = RequestMethod.GET)
     public ModelAndView homePage() {
         ModelAndView mav = new ModelAndView("web/home");
