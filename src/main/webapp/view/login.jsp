@@ -188,11 +188,16 @@
             type: "POST",
             contentType: 'application/json',
             data:JSON.stringify(data),
-            success: function () {
-                window.location.href = "/dang-nhap?messenge=sign-up-success";
+            success: function (result)
+            {
+                if (result == "") {
+                    window.location.href = "/dang-nhap?messenge=tai-khoan-da-ton-tai";
+                }
+                else
+                    window.location.href = "/dang-nhap?messenge=sign-up-success";
             },
             error: function () {
-                window.location.href = "/dang-nhap?messgenge=sign-up-fail";
+                window.location.href = "/dang-nhap?messenge=sign-up-fail";
             }
         })
     }

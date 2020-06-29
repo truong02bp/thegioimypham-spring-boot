@@ -116,8 +116,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="Checkout.html" class="btn-formTax">
-                        <div>Thanh toán</div>
+                    <a href="/check-out" class="btn-formTax hieuung">
+                        <div>Tiến hành đặt hàng</div>
                     </a>
                 </div>
             </div>

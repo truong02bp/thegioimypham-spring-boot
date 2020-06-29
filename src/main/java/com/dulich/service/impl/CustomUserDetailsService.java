@@ -5,6 +5,7 @@ import com.dulich.dto.MyUserDetails;
 import com.dulich.dto.UserDto;
 import com.dulich.entity.RoleEntity;
 import com.dulich.entity.UserEntity;
+import com.dulich.repository.RoleRepository;
 import com.dulich.repository.UserRepository;
 import com.dulich.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class CustomUserDetailsService implements UserDetailsService , IUserServi
 {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RoleRepository roleRepository;
     @Override
     public MyUserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
@@ -49,15 +52,12 @@ public class CustomUserDetailsService implements UserDetailsService , IUserServi
         UserEntity userEntity = userRepository.findByUsername(userDto.getUsername());
         if (userEntity != null)
             return null;
+        List<RoleEntity> list = roleRepository.findAll();
+        List<RoleEntity> roles = new ArrayList<>();
+        roles.add(list.get(1));
         UserEntity user = userConverter.toEntity(userDto);
+        user.setRoles(roles);
         return userConverter.toDto(userRepository.save(user));
-    }
-
-    @Override
-    @Transactional
-    public void insert(Long id)
-    {
-        userRepository.insert(id);
     }
 
     @Override

@@ -9,7 +9,6 @@ import java.util.List;
 public interface IUserService
 {
     UserDto save(UserDto userDto);
-    void insert(Long id);
     List<UserDto> findAll(Pageable pageable);
     Long getTotalPage();
 }

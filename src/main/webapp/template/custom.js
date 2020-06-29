@@ -130,3 +130,6 @@ $('#search-button').click(function () {
         }
     })
 })
+$('.dat-hang').click(function () {
+
+})

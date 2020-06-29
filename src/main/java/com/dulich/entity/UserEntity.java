@@ -80,4 +80,5 @@ public class UserEntity extends BaseEntity
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }

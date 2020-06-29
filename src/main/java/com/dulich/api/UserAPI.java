@@ -20,17 +20,12 @@ public class UserAPI
     private IUserService iuserService;
 
     @PostMapping("/api-user")
-    public UserDto addUser(@RequestBody UserDto userDto, HttpServletResponse response) throws IOException
+    public UserDto addUser(@RequestBody UserDto userDto) throws IOException
     {
-        System.out.println(userDto.getEmail());
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String pass = userDto.getPassword();
         userDto.setPassword(bCryptPasswordEncoder.encode(pass));
         UserDto user = iuserService.save(userDto);
-        if (user == null)
-            response.sendRedirect("/dang-ky?messenge=tai-khoan-da-ton-tai");
-        else
-            iuserService.insert(user.getId());
         return user;
     }
 }
