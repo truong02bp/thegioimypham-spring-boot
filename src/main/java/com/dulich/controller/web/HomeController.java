@@ -33,23 +33,6 @@ public class HomeController {
     public ModelAndView homePage() {
         ModelAndView mav = new ModelAndView("web/home");
         mav.addObject("items",iItemService.findAllByWeb("adflex"));
-        BillDetailsEntity billDetailsEntity = new BillDetailsEntity();
-        billDetailsEntity.setName("helo");
-        billDetailsEntity.setPrice((long) 300);
-        BillDetailsEntity billDetailsEntity1 = new BillDetailsEntity();
-        billDetailsEntity1.setName("hao");
-        billDetailsEntity1.setPrice((long) 300);
-        List<BillDetailsEntity> list = new ArrayList<>();
-        list.add(billDetailsEntity);
-        list.add(billDetailsEntity1);
-        BillEntity billEntity = new BillEntity();
-        billEntity.setAddress("a");
-        billEntity.setFullname("a");
-        billEntity.setNote("b");
-        billEntity.setPhone("b");
-        billEntity.setPrice((long) 3);
-        billEntity.setItems(list);
-        billEntity = billRepository.save(billEntity);
         return mav;
     }
     @GetMapping("/dang-nhap")
@@ -67,6 +50,8 @@ public class HomeController {
     public ModelAndView pageCheckOut()
     {
         ModelAndView mav = new ModelAndView("web/checkout");
+        BillEntity bill = new BillEntity();
+        mav.addObject("model",bill);
         return mav;
     }
 }

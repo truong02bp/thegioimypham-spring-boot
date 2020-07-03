@@ -1,6 +1,8 @@
 package com.dulich.api;
 
 import com.dulich.dto.CartDto;
+import com.dulich.entity.BillEntity;
+import com.dulich.service.IBillService;
 import com.dulich.service.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +18,8 @@ public class CartAPI
 {
     @Autowired
     private ICartService iCartService;
-
+    @Autowired
+    private IBillService iBillService;
     Map<Long, CartDto> carts = new HashMap<>();
 
     @PostMapping("add")
@@ -42,5 +45,10 @@ public class CartAPI
         iCartService.delete(carts,id);
         http.setAttribute("carts",carts);
         return (long) carts.size();
+    }
+    @PostMapping("add-bill")
+    public void addBill(@RequestBody BillEntity billEntity)
+    {
+        iBillService.addBill(billEntity,carts);
     }
 }

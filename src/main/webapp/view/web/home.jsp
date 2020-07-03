@@ -220,38 +220,38 @@
                                                 </c:if>
                                             </a>
                                         </li>
-                                    </ul>
-                                </div>
-                                <div class="search2">
-                                    <ul>
-                                        <li>
-                                            <input type="text" id="search" placeholder="Search">
-                                        </li>
-                                        <li>
-                                            <div class="fa fa-search " id="search-button"></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <security:authorize access="isAuthenticated()">
-                                    <div>
-                                        <ul class="nav nav-pills" style="margin-top: 20px;margin-left: 50px;">
-                                            <li class="dropdown">
-                                                <a class="dropdown-toggle"
-                                                   data-toggle="dropdown"
-                                                   href="#"
-                                                   style="border-radius: 20px; height: 40px; width: 40px; background-color: rosybrown; text-align: center">
-                                                    <%=SecurityUtils.getPrincipal().getFullName().charAt(SecurityUtils.getPrincipal().getFullName().lastIndexOf(" ") + 1)%>
-                                                    <b class="caret"></b>
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <a href="#"> - Thông tin cá nhân</a>
-                                                    <br>
-                                                    <a href="/j_spring_security_logout"> - Đăng xuất</a>
+                                        <security:authorize access="isAuthenticated()">
+                                            <li>
+                                                <ul class="nav nav-pills" style="margin-top: 20px;margin-left: 50px;">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle"
+                                                           data-toggle="dropdown"
+                                                           href="#"
+                                                           style="border-radius: 20px; height: 40px; width: 40px; background-color: rosybrown; text-align: center">
+                                                            <%=SecurityUtils.getPrincipal().getFullName().charAt(SecurityUtils.getPrincipal().getFullName().lastIndexOf(" ") + 1)%>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <a href="#"> - Thông tin cá nhân</a>
+                                                            <br>
+                                                            <a href="/j_spring_security_logout"> - Đăng xuất</a>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                        </ul>
-                                    </div>
-                                </security:authorize>
+                                        </security:authorize>
+                                    </ul>
+                                </div>
+<%--                                <div class="search2">--%>
+<%--                                    <ul>--%>
+<%--                                        <li>--%>
+<%--                                            <input type="text" id="search" placeholder="Search">--%>
+<%--                                        </li>--%>
+<%--                                        <li>--%>
+<%--                                            <div class="fa fa-search " id="search-button"></div>--%>
+<%--                                        </li>--%>
+<%--                                    </ul>--%>
+<%--                                </div>--%>
                             </div>
 
                         </div>

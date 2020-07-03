@@ -1,6 +1,7 @@
 package com.dulich.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,8 +18,9 @@ public class BillEntity extends BaseEntity
     private String note;
     @Column(name ="price")
     private Long price;
-    @OneToMany(mappedBy = "billEntity", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    private List<BillDetailsEntity> items;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="bill_id")
+    private List<BillDetailsEntity> items = new ArrayList<>();
 
     public List<BillDetailsEntity> getItems() {
         return items;

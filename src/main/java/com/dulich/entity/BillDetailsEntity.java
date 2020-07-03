@@ -1,7 +1,6 @@
 package com.dulich.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "billdetails")
@@ -13,10 +12,9 @@ public class BillDetailsEntity extends BaseEntity
     private Long quantity;
     @Column(name = "price")
     private Long price;
-    @ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @JoinColumn(name = "bill_id")
-    private BillEntity billEntity;
-
+    @ManyToOne(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+    @JoinColumn(name="bill_id")
+    private BillEntity bill;
 
     public String getName() {
         return name;
@@ -42,11 +40,11 @@ public class BillDetailsEntity extends BaseEntity
         this.price = price;
     }
 
-    public BillEntity getBillEntity() {
-        return billEntity;
+    public BillEntity getBill() {
+        return bill;
     }
 
-    public void setBillEntity(BillEntity billEntity) {
-        this.billEntity = billEntity;
+    public void setBill(BillEntity bill) {
+        this.bill = bill;
     }
 }

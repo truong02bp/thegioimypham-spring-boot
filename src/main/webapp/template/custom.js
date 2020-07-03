@@ -130,6 +130,25 @@ $('#search-button').click(function () {
         }
     })
 })
-$('.dat-hang').click(function () {
-
+$('.dat-hang').click(function ()
+{
+    let data = {};
+    let formData = $('#formSubmit').serializeArray();
+    let price = toNumber($('.form-tax').find("div.last-price").text());
+    data["price"] = price;
+    $.each(formData,function (i,v) {
+        data[""+v.name+""] = v.value;
+    })
+    $.ajax({
+        url: "/api-cart/add-bill",
+        type: "POST",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        success: function () {
+            alert("Đặt hàng thành công");
+        },
+        error: function () {
+            alert("Đặt hàng thất bại");
+        }
+    })
 })
