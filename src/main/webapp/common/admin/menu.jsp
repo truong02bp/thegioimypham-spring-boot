@@ -82,6 +82,13 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
+                <li class="">
+                    <a href="/admin-list/bill?page=1&limit=6">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Danh sách hóa đơn
+                    </a>
+                    <b class="arrow"></b>
+                </li>
             </ul>
         </li>
     </ul><!-- /.nav-list -->

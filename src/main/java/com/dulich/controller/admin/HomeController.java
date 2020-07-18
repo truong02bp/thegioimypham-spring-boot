@@ -1,11 +1,13 @@
 package com.dulich.controller.admin;
 
 import com.dulich.converter.CategoryConverter;
+import com.dulich.dto.BillDto;
 import com.dulich.dto.CategoryDto;
 import com.dulich.dto.ItemDto;
 import com.dulich.dto.UserDto;
 import com.dulich.entity.UserEntity;
 import com.dulich.repository.UserRepository;
+import com.dulich.service.IBillService;
 import com.dulich.service.ICategoryService;
 import com.dulich.service.IItemService;
 import com.dulich.service.IUserService;
@@ -28,6 +30,8 @@ public class HomeController
     private IUserService iUserService;
     @Autowired
     private ICategoryService iCategoryService;
+    @Autowired
+    private IBillService iBillService;
     @GetMapping("/admin-home")
     public ModelAndView homePage()
     {
@@ -74,6 +78,20 @@ public class HomeController
         List<UserDto> list = iUserService.findAll(pageable);
         model.setList(list);
         model.setTotalPage((int) Math.ceil((double)iUserService.getTotalPage()/limit));
+        mav.addObject("model",model);
+        return mav;
+    }
+    @GetMapping("/admin-list/bill")
+    public ModelAndView listBill(@RequestParam("page") int page,
+                                 @RequestParam("limit") int limit)
+    {
+        ModelAndView mav = new ModelAndView("admin/listBill");
+        BillDto model = new BillDto();
+        model.setPage(page);
+        model.setLimit(limit);
+        Pageable pageable = PageRequest.of(page-1,limit);
+        model.setList(iBillService.findAll(pageable));
+        model.setTotalPage((int)Math.ceil((double) iBillService.getTotal()/limit));
         mav.addObject("model",model);
         return mav;
     }
