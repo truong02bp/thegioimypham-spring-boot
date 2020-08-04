@@ -1,9 +1,7 @@
 package com.dulich.service.impl;
 
 import com.dulich.dto.CartDto;
-import com.dulich.dto.ItemDto;
 import com.dulich.service.ICartService;
-import com.dulich.service.ICategoryService;
 import com.dulich.service.IItemService;
 import com.dulich.ultils.PriceUtil;
 import org.springframework.beans.factory.annotation.Autowired;

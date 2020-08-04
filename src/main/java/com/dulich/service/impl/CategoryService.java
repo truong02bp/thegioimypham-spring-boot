@@ -2,7 +2,6 @@ package com.dulich.service.impl;
 
 import com.dulich.converter.CategoryConverter;
 import com.dulich.dto.CategoryDto;
-import com.dulich.entity.CategoryEntity;
 import com.dulich.repository.CategoryRepository;
 import com.dulich.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

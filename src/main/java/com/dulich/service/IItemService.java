@@ -9,7 +9,7 @@ public interface IItemService
 {
     List<ItemDto> findAll(Pageable pageable);
     List<ItemDto> findAllByWeb(String web);
-    List<ItemDto> findAllByCategoryId(Long id , Pageable pageable , String sort);
+    List<ItemDto> findAllByCategoryId(Long id , Pageable pageable , ItemDto itemDto);
     ItemDto findOne(Long id);
     ItemDto save(ItemDto itemDto);
     List<ItemDto> searchByName(String itemName , int limit , int offset);

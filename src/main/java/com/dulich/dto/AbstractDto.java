@@ -11,10 +11,19 @@ public class AbstractDto<T>
     protected int page;
     protected int limit;
     protected int totalPage;
+    protected String sort;
     protected String createdBy;
     protected String modifiedBy;
     protected Date createdDate;
     protected Date modifiedDate;
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
 
     public int getPage() {
         return page;

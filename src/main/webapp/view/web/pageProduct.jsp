@@ -30,13 +30,13 @@
                                     <div class="dropdown filterDrop">
                                         <a class=" dropdown-toggle" type="button" data-toggle="dropdown"
                                            aria-expanded="true">
-                                            <c:if test="${sort == ''}">
+                                            <c:if test="${model.sort == ''}">
                                                 Giá thành
                                             </c:if>
-                                            <c:if test="${sort == 'asc'}">
+                                            <c:if test="${model.sort == 'asc'}">
                                                 Giá tăng dần
                                             </c:if>
-                                            <c:if test="${sort == 'desc'}">
+                                            <c:if test="${model.sort == 'desc'}">
                                                 Giá giảm dần
                                             </c:if>
                                             <span class="fa fa-angle-down"></span>
@@ -141,6 +141,7 @@
                     <input type="hidden" name="page" id="page">
                     <input type="hidden" name="limit" id="limit">
                     <input type="hidden" name="name" id="name">
+                    <input type="hidden" name="sort" id="sort">
                 </form>
             </div>
             <div class="col-md-3 col-md-pull-9">
@@ -166,57 +167,36 @@
                 </div>
                 <div class="lineAbout" style="width: 100%;height: 1px"></div>
                 <div class="sidebar-filter-color">
-                    <h3 class="slider-left-title">CATALOG</h3>
                     <h3 class="slider-left-title" style="font-size: 16px;margin-top: 15px;margin-bottom: 15px;">
-                        PRICE</h3>
-                    <div class="sidebar-box">
-                        <div class="custom-checkbox">
-                            <div class="btn-group style-checkbox" data-toggle="buttons">
-                                <label class="btn btn-success default">
-                                    <input type="checkbox" checked="">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </label>
-                            </div>
-                            <p>Under 10$</p>
+                        Giá</h3>
+                    <form>
+                        <div class="sidebar-box">
+                            <input class="price-radio" type="radio" id="price1" name="price" value="<1" style="margin-left: -20px">
+                            <label for="price1">
+                                <p> < 100,000đ</p>
+                            </label>
+                            <br>
+                            <input class="price-radio" type="radio" id="price2" name="price" value="1-2" style="margin-left: -20px">
+                            <label for="price2">
+                                <p> 100,000đ - 200,000đ</p>
+                            </label>
+                            <br>
+                            <input class="price-radio" type="radio" id="price3" name="price" value="2-3" style="margin-left: -20px">
+                            <label for="price3">
+                                <p>200,000đ - 300,000đ</p>
+                            </label>
+                            <br>
+                            <input class="price-radio" type="radio" id="price4" name="price" value="3-4" style="margin-left: -20px">
+                            <label for="price4">
+                                <p>300,000đ - 400,000đ</p>
+                            </label>
+                            <br>
+                            <input class="price-radio" type="radio" id="price5" name="price" value=">400000" style="margin-left: -20px">
+                            <label for="price5">
+                                <p> > 400,000đ</p>
+                            </label>
                         </div>
-                        <div class="custom-checkbox">
-                            <div class="btn-group style-checkbox" data-toggle="buttons">
-                                <label class="btn btn-success default">
-                                    <input type="checkbox" checked="">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </label>
-                            </div>
-                            <p>$10-$20</p>
-                        </div>
-                        <div class="custom-checkbox">
-                            <div class="btn-group style-checkbox" data-toggle="buttons">
-                                <label class="btn btn-success default">
-                                    <input type="checkbox" checked="">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </label>
-                            </div>
-                            <p>$20-$30</p>
-                        </div>
-                        <div class="custom-checkbox">
-                            <div class="btn-group style-checkbox" data-toggle="buttons">
-                                <label class="btn btn-success default">
-                                    <input type="checkbox" checked="">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </label>
-                            </div>
-                            <p>$30-$40</p>
-                        </div>
-                        <div class="custom-checkbox">
-                            <div class="btn-group style-checkbox" data-toggle="buttons">
-                                <label class="btn btn-success default">
-                                    <input type="checkbox" checked="">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </label>
-                            </div>
-                            <p>Above $40</p>
-                        </div>
-
-                    </div>
+                    </form>iejen
                 </div>
                 <div class="lineAbout" style="width: 100%;height: 1px"></div>
                 <div class="box-slider-left slideNewproduct slideNewproduct2">
@@ -303,7 +283,8 @@
                 if (currentPage != page) {
                     $('#page').val(page);
                     $('#name').val("${model.categoryCode}");
-                    $('#limit').val(6);
+                    $('#limit').val(9);
+                    $('#sort').val("${model.sort}");
                     $('#formSubmit').submit();
                 }
             }

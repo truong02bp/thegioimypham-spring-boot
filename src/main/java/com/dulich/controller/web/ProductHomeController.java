@@ -5,10 +5,8 @@ import com.dulich.dto.ItemDto;
 import com.dulich.service.ICategoryService;
 import com.dulich.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +35,7 @@ public class ProductHomeController
     public ModelAndView pageProduct(@RequestParam("name") String name ,
                                     @RequestParam("page") int page ,
                                     @RequestParam("limit") int limit ,
-                                    @RequestParam(value = "sort" , required = false , defaultValue = "") String sort )
+                                    @RequestParam(value = "sort" , required = false , defaultValue = "") String sort)
     {
         ModelAndView mav = new ModelAndView("web/pageProduct");
         CategoryDto category = iCategoryService.findOneByCode(name);
@@ -46,15 +44,15 @@ public class ProductHomeController
         model.setCategoryCode(category.getCode());
         model.setPage(page);
         model.setLimit(limit);
+        model.setSort(sort);
         Pageable pageable = PageRequest.of(page-1,limit);
-        model.setList(iItemService.findAllByCategoryId(category.getId(),pageable,sort));
+        model.setList(iItemService.findAllByCategoryId(category.getId(),pageable,model));
         model.setTotalPage((int) Math.ceil((double) iItemService.getTotalPage(category.getId())/limit));
         mav.addObject("model",model);
-        mav.addObject("sort",sort);
         return mav;
     }
     @GetMapping("/page-tim-kiem")
-    public ModelAndView pageSearch(@RequestParam(value = "itemName" , required = false) String itemName,
+    public ModelAndView pageSearch(
                                    @RequestParam("page") int page,
                                    @RequestParam("limit") int limit)
     {
