@@ -39,19 +39,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
+//        http.csrf().disable()
+//            .authorizeRequests()
+//                .antMatchers("/admin*").hasRole("ADMIN")
+//                .antMatchers("/admin*/*").hasRole("ADMIN")
+//                .antMatchers("/*").permitAll()
+//                .and()
+//                .formLogin()
+//                .loginPage("/dang-nhap")
+//                .successHandler(new CustomSuccessHandler())
+//                .loginProcessingUrl("/j_spring_security_check")
+//                .failureUrl("/dang-nhap?error")
+//                .usernameParameter("username").passwordParameter("password")
+//                .and().exceptionHandling().accessDeniedPage("/dang-nhap")
+//                .and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/dang-nhap?message=logout");
         http.csrf().disable()
-            .authorizeRequests()
+                .authorizeRequests()
                 .antMatchers("/admin*").hasRole("ADMIN")
                 .antMatchers("/admin*/*").hasRole("ADMIN")
                 .antMatchers("/*").permitAll()
                 .and()
                 .formLogin()
-                .loginProcessingUrl("/j_spring_security_check")
                 .loginPage("/dang-nhap")
                 .successHandler(new CustomSuccessHandler())
-                .failureUrl("/dang-nhap?error")
-                .usernameParameter("username").passwordParameter("password")
-                .and().exceptionHandling().accessDeniedPage("/dang-nhap")
-                .and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/dang-nhap?message=logout");
+                .and()
+                .logout()
+                .clearAuthentication(true)
+                .logoutSuccessUrl("/dang-nhap?message=logout");
     }
 }

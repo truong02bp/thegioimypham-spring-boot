@@ -78,7 +78,7 @@ $('.cart-button').click(function ()
                     id:id
                 },
             success: function (value) {
-                alert("Thêm vào giỏ hàng thành công");
+                // alert("Thêm vào giỏ hàng thành công");
                 $('#cart-parent').find("div").html("<span>" + value + "</span>");
                 $('#cart-parent').find("div").addClass("cart-alert");
             },
@@ -151,4 +151,16 @@ $('.dat-hang').click(function ()
             alert("Đặt hàng thất bại");
         }
     })
+})
+$('.price-radio').click(function ()
+{
+    let priceSelect = $(this).val();
+    let url = window.location.href;
+    if (url.includes("price")==false)
+        window.location.href = url+"&price="+priceSelect;
+    else
+    {
+        url = url.substring(0,url.length-3);
+        window.location.href = url+priceSelect;
+    }
 })

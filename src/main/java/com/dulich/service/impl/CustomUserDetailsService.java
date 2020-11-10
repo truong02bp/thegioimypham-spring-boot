@@ -71,6 +71,14 @@ public class CustomUserDetailsService implements UserDetailsService , IUserServi
     }
 
     @Override
+    public List<UserDto> findAll() {
+        List<UserEntity> users = userRepository.findAll();
+        List<UserDto> rs = new ArrayList<>();
+        for (UserEntity userEntity : users)
+            rs.add(userConverter.toDto(userEntity));
+        return rs;
+    }
+    @Override
     public Long getTotalPage() {
         return userRepository.count();
     }

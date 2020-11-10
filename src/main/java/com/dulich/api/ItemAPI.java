@@ -28,12 +28,14 @@ public class ItemAPI
     @DeleteMapping("/api-item")
     public void deleleItem(@RequestBody Long[] ids)
     {
-        for (Long id : ids)
-            iItemService.delete(id);
+        System.out.println(ids.length);
+//        for (Long id : ids)
+//            iItemService.delete(id);
     }
     @GetMapping("/api-item/search")
     public Long getSize(@RequestParam(value="itemName" , required = false) String itemName)
     {
+        System.out.println(itemName);
         return (long) iItemService.searchByName(itemName,9,0).size();
     }
 }

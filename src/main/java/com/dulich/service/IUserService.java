@@ -10,5 +10,6 @@ public interface IUserService
 {
     UserDto save(UserDto userDto);
     List<UserDto> findAll(Pageable pageable);
+    List<UserDto> findAll();
     Long getTotalPage();
 }

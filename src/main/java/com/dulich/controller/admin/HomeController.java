@@ -57,7 +57,7 @@ public class HomeController
     public ModelAndView updateCreate(@RequestParam(value = "id" , required = false) Long id)
     {
         ModelAndView mav = new ModelAndView("admin/createUpdate");
-        ItemDto model = ItemDto.getPrincipal();
+        ItemDto model = new ItemDto();
         if (id != null)
         {
             model = iItemService.findOne(id);

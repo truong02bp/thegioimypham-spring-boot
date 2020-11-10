@@ -14,12 +14,12 @@
     <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>" type="text/javascript"></script>
 </head>
 <body>
+<form action="/page-san-pham?name=${model.categoryCode}&page=${model.page}&limit=${model.limit}"
+      id="formSubmit" method="GET">
 <section class="page-shop-slidebar" style="    padding-top: 60px;">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-md-push-3">
-                <form action="/page-san-pham?name=${model.categoryCode}&page=${model.page}&limit=${model.limit}"
-                      id="formSubmit" method="GET">
                     <h3 style="font-size: 18px;font-weight: bold;margin-top: 30px;margin-bottom: 10px">Sản phẩm của
                         chúng tôi</h3>
                     <div class="box-fitter clearfix">
@@ -141,8 +141,6 @@
                     <input type="hidden" name="page" id="page">
                     <input type="hidden" name="limit" id="limit">
                     <input type="hidden" name="name" id="name">
-                    <input type="hidden" name="sort" id="sort">
-                </form>
             </div>
             <div class="col-md-3 col-md-pull-9">
 
@@ -169,108 +167,114 @@
                 <div class="sidebar-filter-color">
                     <h3 class="slider-left-title" style="font-size: 16px;margin-top: 15px;margin-bottom: 15px;">
                         Giá</h3>
-                    <form>
-                        <div class="sidebar-box">
-                            <input class="price-radio" type="radio" id="price1" name="price" value="<1" style="margin-left: -20px">
-                            <label for="price1">
-                                <p> < 100,000đ</p>
-                            </label>
-                            <br>
-                            <input class="price-radio" type="radio" id="price2" name="price" value="1-2" style="margin-left: -20px">
-                            <label for="price2">
-                                <p> 100,000đ - 200,000đ</p>
-                            </label>
-                            <br>
-                            <input class="price-radio" type="radio" id="price3" name="price" value="2-3" style="margin-left: -20px">
-                            <label for="price3">
-                                <p>200,000đ - 300,000đ</p>
-                            </label>
-                            <br>
-                            <input class="price-radio" type="radio" id="price4" name="price" value="3-4" style="margin-left: -20px">
-                            <label for="price4">
-                                <p>300,000đ - 400,000đ</p>
-                            </label>
-                            <br>
-                            <input class="price-radio" type="radio" id="price5" name="price" value=">400000" style="margin-left: -20px">
-                            <label for="price5">
-                                <p> > 400,000đ</p>
-                            </label>
-                        </div>
-                    </form>iejen
+                    <div class="sidebar-box">
+                        <input class="price-radio" type="radio" id="price1" name="price" value='0-1'
+                               style="margin-left: -20px">
+                        <label for="price1">
+                            <p> < 100,000đ</p>
+                        </label>
+                        <br>
+                        <input class="price-radio" type="radio" id="price2" name="price" value="1-2"
+                               style="margin-left: -20px">
+                        <label for="price2">
+                            <p> 100,000đ - 200,000đ</p>
+                        </label>
+                        <br>
+                        <input class="price-radio" type="radio" id="price3" name="price" value="2-3"
+                               style="margin-left: -20px">
+                        <label for="price3">
+                            <p>200,000đ - 300,000đ</p>
+                        </label>
+                        <br>
+                        <input class="price-radio" type="radio" id="price4" name="price" value="3-4"
+                               style="margin-left: -20px" >
+                        <label for="price4">
+                            <p>300,000đ - 400,000đ</p>
+                        </label>
+                        <br>
+                        <input class="price-radio" type="radio" id="price5" name="price" value="4-9"
+                               style="margin-left: -20px">
+                        <label for="price5">
+                            <p> > 400,000đ</p>
+                        </label>
+                    </div>
                 </div>
-                <div class="lineAbout" style="width: 100%;height: 1px"></div>
-                <div class="box-slider-left slideNewproduct slideNewproduct2">
-                    <h3 class="slider-left-title">Sản phẩm bán chạy</h3>
-                    <div class="box-slideNewproduct">
-                        <div class="slideNewproduct-item slideNewproduct-img">
-                            <a href="/san-pham?id=18&name=22again-vn"><img
-                                    src="<c:url value="/template/images/22again-vn.jpg"/>"
-                                    alt="product1"
-                                    class="img-responsive"/></a>
-                        </div>
-                        <div class="slideNewproduct-item slideNewproduct-text">
-                            <h5><a href="/san-pham?id=18&name=22again-vn">Kem chống lão hòa 22again</a></h5>
-                            <p class="slideProduct-price">790,000 đ</p>
-                        </div>
+            </div>
+            <div class="lineAbout" style="width: 100%;height: 1px"></div>
+            <div class="box-slider-left slideNewproduct slideNewproduct2">
+                <h3 class="slider-left-title">Sản phẩm bán chạy</h3>
+                <div class="box-slideNewproduct">
+                    <div class="slideNewproduct-item slideNewproduct-img">
+                        <a href="/san-pham?id=18&name=22again-vn"><img
+                                src="<c:url value="/template/images/22again-vn.jpg"/>"
+                                alt="product1"
+                                class="img-responsive"/></a>
                     </div>
-                    <div class="box-slideNewproduct ">
-                        <div class="slideNewproduct-item slideNewproduct-img">
-                            <a href="/san-pham?id=21&name=gluwhite-vn"><img
-                                    src="<c:url value="/template/images/gluwhite-vn.jpg"/>"
-                                    alt="product1"
-                                    class="img-responsive"/></a>
-                        </div>
-                        <div class="slideNewproduct-item slideNewproduct-text">
-                            <h5><a href="/san-pham?id=21&name=gluwhite-vn">Viên sủi trắng da Gluwhite</a></h5>
-                            <p class="slideProduct-price">890,000 đ</p>
-                        </div>
+                    <div class="slideNewproduct-item slideNewproduct-text">
+                        <h5><a href="/san-pham?id=18&name=22again-vn">Kem chống lão hòa 22again</a></h5>
+                        <p class="slideProduct-price">790,000 đ</p>
                     </div>
-                    <div class="box-slideNewproduct">
-                        <div class="slideNewproduct-item slideNewproduct-img">
-                            <a href="/san-pham?id=23&name=lefery-vn"><img
-                                    src="<c:url value="/template/images/lefery-vn.jpg"/>"
-                                    alt="product1"
-                                    class="img-responsive"/></a>
-                        </div>
-                        <div class="slideNewproduct-item slideNewproduct-text">
-                            <h5><a href="/san-pham?id=23&name=lefery-vn">Kem dưỡng da Lefery</a></h5>
-                            <p class="slideProduct-price">590,000 đ</p>
-                        </div>
+                </div>
+                <div class="box-slideNewproduct ">
+                    <div class="slideNewproduct-item slideNewproduct-img">
+                        <a href="/san-pham?id=21&name=gluwhite-vn"><img
+                                src="<c:url value="/template/images/gluwhite-vn.jpg"/>"
+                                alt="product1"
+                                class="img-responsive"/></a>
                     </div>
-                    <div class="box-slideNewproduct">
-                        <div class="slideNewproduct-item slideNewproduct-img">
-                            <a href="/san-pham?id=20&name=dakami-vn"><img
-                                    src="<c:url value="/template/images/dakami-vn.jpg"/>"
-                                    alt="product1"
-                                    class="img-responsive"/></a>
-                        </div>
-                        <div class="slideNewproduct-item slideNewproduct-text">
-                            <h5><a href="/san-pham?id=20&name=dakami-vn">Kem chống lão hóa Dakami</a></h5>
-                            <p class="slideProduct-price">790,000 đ</p>
-                        </div>
+                    <div class="slideNewproduct-item slideNewproduct-text">
+                        <h5><a href="/san-pham?id=21&name=gluwhite-vn">Viên sủi trắng da Gluwhite</a></h5>
+                        <p class="slideProduct-price">890,000 đ</p>
                     </div>
-                    <div class="box-slideNewproduct">
-                        <div class="slideNewproduct-item slideNewproduct-img">
-                            <a href="/san-pham?id=22&name=fedora-vn"><img
-                                    src="<c:url value="/template/images/fedora-vn.jpg"/>"
-                                    alt="product1"
-                                    class="img-responsive"/></a>
-                        </div>
-                        <div class="slideNewproduct-item slideNewproduct-text">
-                            <h5><a href="/san-pham?id=22&name=fedora-vn">Kem chống lão hóa Fedora</a></h5>
-                            <p class="slideProduct-price">790,000 đ</p>
-                        </div>
+                </div>
+                <div class="box-slideNewproduct">
+                    <div class="slideNewproduct-item slideNewproduct-img">
+                        <a href="/san-pham?id=23&name=lefery-vn"><img
+                                src="<c:url value="/template/images/lefery-vn.jpg"/>"
+                                alt="product1"
+                                class="img-responsive"/></a>
+                    </div>
+                    <div class="slideNewproduct-item slideNewproduct-text">
+                        <h5><a href="/san-pham?id=23&name=lefery-vn">Kem dưỡng da Lefery</a></h5>
+                        <p class="slideProduct-price">590,000 đ</p>
+                    </div>
+                </div>
+                <div class="box-slideNewproduct">
+                    <div class="slideNewproduct-item slideNewproduct-img">
+                        <a href="/san-pham?id=20&name=dakami-vn"><img
+                                src="<c:url value="/template/images/dakami-vn.jpg"/>"
+                                alt="product1"
+                                class="img-responsive"/></a>
+                    </div>
+                    <div class="slideNewproduct-item slideNewproduct-text">
+                        <h5><a href="/san-pham?id=20&name=dakami-vn">Kem chống lão hóa Dakami</a></h5>
+                        <p class="slideProduct-price">790,000 đ</p>
+                    </div>
+                </div>
+                <div class="box-slideNewproduct">
+                    <div class="slideNewproduct-item slideNewproduct-img">
+                        <a href="/san-pham?id=22&name=fedora-vn"><img
+                                src="<c:url value="/template/images/fedora-vn.jpg"/>"
+                                alt="product1"
+                                class="img-responsive"/></a>
+                    </div>
+                    <div class="slideNewproduct-item slideNewproduct-text">
+                        <h5><a href="/san-pham?id=22&name=fedora-vn">Kem chống lão hóa Fedora</a></h5>
+                        <p class="slideProduct-price">790,000 đ</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    </div>
 </section>
+</form>
 <script src="<c:url value="/template/assets/js/jquery.min.map"/>"></script>
 <script type="text/javascript">
     $('#pagination').find("li.first").remove();
     $('#pagination').find("li.last").remove();
+    ${model}
     var totalPage = ${model.totalPage};
     var currentPage = ${model.page};
     var limit = ${model.limit};
@@ -279,12 +283,13 @@
             startPage: currentPage,
             visiblePages: 3,
             totalPages: totalPage,
-            onPageClick: function (event, page) {
-                if (currentPage != page) {
+            onPageClick: function (event, page)
+            {
+                if (currentPage != page)
+                {
                     $('#page').val(page);
                     $('#name').val("${model.categoryCode}");
                     $('#limit').val(9);
-                    $('#sort').val("${model.sort}");
                     $('#formSubmit').submit();
                 }
             }

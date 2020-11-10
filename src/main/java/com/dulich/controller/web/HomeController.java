@@ -1,10 +1,8 @@
 package com.dulich.controller.web;
 
-import com.dulich.entity.BillDetailsEntity;
-import com.dulich.entity.BillEntity;
-import com.dulich.entity.RoleEntity;
-import com.dulich.entity.UserEntity;
+import com.dulich.entity.*;
 import com.dulich.repository.BillRepository;
+import com.dulich.repository.ItemRepository;
 import com.dulich.repository.RoleRepository;
 import com.dulich.repository.UserRepository;
 import com.dulich.service.ICartService;
@@ -24,10 +22,6 @@ public class HomeController {
 
     @Autowired
     private IItemService iItemService;
-    @Autowired
-    private BillRepository billRepository;
-    @Autowired
-    private ICartService iCartService;
 
     @RequestMapping(value = {"/trang-chu"} , method = RequestMethod.GET)
     public ModelAndView homePage() {

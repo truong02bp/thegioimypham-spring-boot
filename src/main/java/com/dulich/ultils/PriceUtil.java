@@ -29,4 +29,31 @@ public class PriceUtil
         StringBuffer reverse = new StringBuffer(rs);
         return reverse.reverse().toString();
     }
+    public static Long getMin(String price) {
+        int s = price.charAt(0) - '0';
+        switch (s) {
+            case 1:
+                return (long) 100000;
+            case 2:
+                return (long) 200000;
+            case 3:
+                return (long) 300000;
+            case 4:
+                return (long) 400000;
+        }
+        return (long)0;
+    }
+    public static Long getMax(String price) {
+        int s = price.charAt(price.length()-1) - '0';
+        switch (s) {
+            case 2:
+                return (long) 200000;
+            case 3:
+                return (long) 300000;
+            case 4:
+                return (long) 400000;
+            default:
+                return (long)10000000;
+        }
+    }
 }

@@ -2,6 +2,8 @@ package com.dulich.controller.web;
 
 import com.dulich.dto.CategoryDto;
 import com.dulich.dto.ItemDto;
+import com.dulich.entity.ItemEntity;
+import com.dulich.repository.ItemRepository;
 import com.dulich.service.ICategoryService;
 import com.dulich.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ public class ProductHomeController
     private ICategoryService iCategoryService;
     @Autowired
     private IItemService iItemService;
+    @Autowired
+    private ItemRepository itemRepository;
     @RequestMapping(value = {"/san-pham"} , method = RequestMethod.GET)
     public ModelAndView product(@RequestParam("id") Long id)
     {
@@ -35,7 +39,8 @@ public class ProductHomeController
     public ModelAndView pageProduct(@RequestParam("name") String name ,
                                     @RequestParam("page") int page ,
                                     @RequestParam("limit") int limit ,
-                                    @RequestParam(value = "sort" , required = false , defaultValue = "") String sort)
+                                    @RequestParam(value = "sort" , required = false , defaultValue = "") String sort,
+                                    @RequestParam(value = "price" , required = false , defaultValue = "") String priceSelect)
     {
         ModelAndView mav = new ModelAndView("web/pageProduct");
         CategoryDto category = iCategoryService.findOneByCode(name);
@@ -45,6 +50,7 @@ public class ProductHomeController
         model.setPage(page);
         model.setLimit(limit);
         model.setSort(sort);
+        model.setPriceSelect(priceSelect);
         Pageable pageable = PageRequest.of(page-1,limit);
         model.setList(iItemService.findAllByCategoryId(category.getId(),pageable,model));
         model.setTotalPage((int) Math.ceil((double) iItemService.getTotalPage(category.getId())/limit));

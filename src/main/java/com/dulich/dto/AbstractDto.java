@@ -12,10 +12,19 @@ public class AbstractDto<T>
     protected int limit;
     protected int totalPage;
     protected String sort;
+    protected String priceSelect;
     protected String createdBy;
     protected String modifiedBy;
     protected Date createdDate;
     protected Date modifiedDate;
+
+    public String getPriceSelect() {
+        return priceSelect;
+    }
+
+    public void setPriceSelect(String priceSelect) {
+        this.priceSelect = priceSelect;
+    }
 
     public String getSort() {
         return sort;

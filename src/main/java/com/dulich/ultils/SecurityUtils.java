@@ -16,7 +16,7 @@ public class SecurityUtils
     }
     public static List<String> getRoles()
     {
-        List<String> roles=  new ArrayList<>();
+        List<String> roles =  new ArrayList<>();
         List<GrantedAuthority> authorities = (List<GrantedAuthority>) SecurityContextHolder.getContext()
                 .getAuthentication().getAuthorities();
         for (GrantedAuthority authority : authorities)

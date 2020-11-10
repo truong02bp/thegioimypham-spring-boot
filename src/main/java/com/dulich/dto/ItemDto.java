@@ -15,14 +15,8 @@ public class ItemDto extends AbstractDto<ItemDto>
     private Long sale;
     private String giaSau;
     private String giaTruoc;
-    private static ItemDto principal= null;
-    public static ItemDto getPrincipal()
-    {
-        if (principal == null)
-            return new ItemDto();
-        else
-            return principal;
-    }
+
+
     public String getCategoryCode() {
         return categoryCode;
     }
