@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" href="<c:url value="/template/login/images/icons/favicon.ico"/>"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css"
-          href="<c:url value="/static/login/vendor/bootstrap/css/bootstrap.min.css"/>">
+          href="<c:url value="/template/login/vendor/bootstrap/css/bootstrap.min.css"/>">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css"
           href="<c:url value="/template/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>">
