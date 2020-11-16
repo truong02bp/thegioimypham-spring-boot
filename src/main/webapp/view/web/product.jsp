@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<%--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">--%>
     <%@include file="/common/slide-js.jsp"%> <%--add js--%>
     <title>${item.name}</title>
 </head>

@@ -12,7 +12,7 @@
 
 <head>
     <title>Trang chủ</title>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<%--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">--%>
     <meta name="author" content="ThemePunch"/>
     <meta name="description" content="The Garden theme tempalte">
     <meta name="keywords" content="The Garden theme template">
