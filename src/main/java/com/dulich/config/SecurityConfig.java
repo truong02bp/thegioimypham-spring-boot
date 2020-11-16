@@ -57,15 +57,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
             http
                 .authorizeRequests()
                 .antMatchers("/admin*").hasRole("ADMIN")
-                .antMatchers("/admin*/*").hasRole("ADMIN")
-                .antMatchers("/*").permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/dang-nhap")
-                .successHandler(new CustomSuccessHandler())
-                .and()
-                .logout()
-                .clearAuthentication(true)
-                .logoutSuccessUrl("/dang-nhap?message=logout");
+                .antMatchers("/admin*/*").hasRole("ADMIN");
+//                .antMatchers("/*").permitAll()
+//                .and()
+//                .formLogin()
+//                .loginPage("/dang-nhap")
+//                .successHandler(new CustomSuccessHandler())
+//                .and()
+//                .logout()
+//                .clearAuthentication(true)
+//                .logoutSuccessUrl("/dang-nhap?message=logout");
     }
 }
