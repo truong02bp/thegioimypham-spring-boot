@@ -53,11 +53,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 //                .usernameParameter("username").passwordParameter("password")
 //                .and().exceptionHandling().accessDeniedPage("/dang-nhap")
 //                .and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/dang-nhap?message=logout");
-        http.csrf().disable()
+//        http.csrf().disable()
+            http
                 .authorizeRequests()
                 .antMatchers("/admin*").hasRole("ADMIN")
                 .antMatchers("/admin*/*").hasRole("ADMIN")
-//                .antMatchers("/*").permitAll()
+                .antMatchers("/*").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/dang-nhap")

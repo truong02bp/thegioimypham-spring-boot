@@ -26,6 +26,14 @@
 <body>
 <div class="the-garden">
     <header id="header" class="header-serviceV2 aaaa">
+<%--        <%--%>
+<%--            class Abc {--%>
+<%--                public static void bc() {--%>
+<%--                    System.out.println("hello");--%>
+<%--                }--%>
+<%--            }--%>
+<%--            Abc.bc();--%>
+<%--        %>--%>
         <div class="home-menu">
             <nav class="navbar-core navbar-white navbar-v1 headroom headroom--not-bottom headroom--pinned headroom--top">
                 <div class="s-wrapper s-wrapper-service">
