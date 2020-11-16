@@ -36,36 +36,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder()); // passwordEncoder is enabled
 //        auth.userDetailsService(customUserDetailsService); // passwordEncoder is disable
     }
-    @Override
-    protected void configure(HttpSecurity http) throws Exception
-    {
-//        http.csrf().disable()
-//            .authorizeRequests()
-//                .antMatchers("/admin*").hasRole("ADMIN")
-//                .antMatchers("/admin*/*").hasRole("ADMIN")
-//                .antMatchers("/*").permitAll()
-//                .and()
-//                .formLogin()
-//                .loginPage("/dang-nhap")
-//                .successHandler(new CustomSuccessHandler())
-//                .loginProcessingUrl("/j_spring_security_check")
-//                .failureUrl("/dang-nhap?error")
-//                .usernameParameter("username").passwordParameter("password")
-//                .and().exceptionHandling().accessDeniedPage("/dang-nhap")
-//                .and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/dang-nhap?message=logout");
-//        http.csrf().disable()
-            http
-                .authorizeRequests()
-                .antMatchers("/admin*").hasRole("ADMIN")
-                .antMatchers("/admin*/*").hasRole("ADMIN");
-//                .antMatchers("/*").permitAll()
-//                .and()
-//                .formLogin()
-//                .loginPage("/dang-nhap")
-//                .successHandler(new CustomSuccessHandler())
-//                .and()
-//                .logout()
-//                .clearAuthentication(true)
-//                .logoutSuccessUrl("/dang-nhap?message=logout");
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception
+//    {
+////        http.csrf().disable()
+////            .authorizeRequests()
+////                .antMatchers("/admin*").hasRole("ADMIN")
+////                .antMatchers("/admin*/*").hasRole("ADMIN")
+////                .antMatchers("/*").permitAll()
+////                .and()
+////                .formLogin()
+////                .loginPage("/dang-nhap")
+////                .successHandler(new CustomSuccessHandler())
+////                .loginProcessingUrl("/j_spring_security_check")
+////                .failureUrl("/dang-nhap?error")
+////                .usernameParameter("username").passwordParameter("password")
+////                .and().exceptionHandling().accessDeniedPage("/dang-nhap")
+////                .and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/dang-nhap?message=logout");
+////        http.csrf().disable()
+////            http
+////                .authorizeRequests()
+////                .antMatchers("/admin*").hasRole("ADMIN")
+////                .antMatchers("/admin*/*").hasRole("ADMIN");
+////                .antMatchers("/*").permitAll()
+////                .and()
+////                .formLogin()
+////                .loginPage("/dang-nhap")
+////                .successHandler(new CustomSuccessHandler())
+////                .and()
+////                .logout()
+////                .clearAuthentication(true)
+////                .logoutSuccessUrl("/dang-nhap?message=logout");
+//    }
 }
